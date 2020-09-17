@@ -16,12 +16,11 @@ console.log(showNav)
         
         <div className='topnav'>
             {showNav?
-                 <i className="fa fa-times" onClick={renderNavBar}></i>: 
-                <i className="fa fa-bars" onClick={renderNavBar}></i>
+                <button className="list-btn"><i className="fa fa-times" onClick={renderNavBar}></i></button> : 
+                <button className="list-btn"><i className="fa fa-bars" onClick={renderNavBar}></i></button>
             }
-           
 
-            <NavLink to="/login" className="logout">Logout</NavLink>
+            <NavLink to="/login" className="logout"><button className="logout-btn">Logout</button></NavLink>
             {showNav? 
                 <div className="links">
                     <ul className="menuList">
