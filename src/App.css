@@ -1,8 +1,8 @@
 header {
-    height: 100px;
+    height: 150px;
     font-size: 100px;
     text-align: center;
-    background: white;
+    background: #91CEE8;
 }
 
 /* body {
@@ -36,7 +36,8 @@ header {
 
 .logout:hover {
   color: honeydew;
-
+    background: #506D8F;
+    height: 40px;
 }
 
 .menuList {
@@ -67,7 +68,7 @@ header {
 }
 
 .menu-link:hover{
-    background:#506D8F;
+    background: #91CEE8;
     color: white;
 }
 
@@ -91,7 +92,7 @@ html, body, .grid-container { height: 100%; margin: 0; }
 
 
 /* For presentation only, no need to copy the code below */
-.grid-container * {
+/* .grid-container * {
   border: 1px solid red;
   position: relative;
   }
@@ -101,6 +102,6 @@ html, body, .grid-container { height: 100%; margin: 0; }
   position: absolute;
   top: 0;
   left: 0;
-  }
+  } */
 
 
