@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
+header {
+    height: 100px;
+    font-size: 100px;
+    text-align: center;
+    background: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* body {
+    background-image: linear-gradient(100 deg, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+} */
+
+/* Navbar and hamburer menu */
+.topnav {
+    padding: 10px;
+    position: relative;
+    background-color: #A7B3C2;
+    text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.topnav i {
+    font-size: 30px;
+}
+
+.topnav i:hover {
+    color: honeydew;
+}
+
+.logout {
+    text-decoration: none;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    color: black;
+    font-size: 20px;
+}
+
+.logout:hover {
+  color: honeydew;
+
+}
+
+.menuList {
+    padding: 0;
+    margin: 0;
+    width: 20vw;
+    height: 50vh;
+    /* box-shadow: #555; */
+    position: absolute;
+    background:#EDF6F6;
+    font-size: 20px;
+    padding-top: 60px;
+}
+
+.menuList li {
+    text-decoration: none; 
+   
+}
+
+.menu-link {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    display: flex;
+    right: 30px;
+    top: 10px;
+    /* border-bottom: 1px solid #555 ; */
+}
+
+.menu-link:hover{
+    background:#506D8F;
+    color: white;
+}
+
+
+/* main grid */
+
+html, body, .grid-container { height: 100%; margin: 0; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.2fr 1.8fr 1.9fr 0.2fr;
+  grid-template-rows: 0.1fr 3.1fr 0.1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    ". . . ."
+    ". main main ."
+    ". . . .";
+}
+
+.main { grid-area: main; }
+
+
+/* For presentation only, no need to copy the code below */
+.grid-container * {
+  border: 1px solid red;
+  position: relative;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.grid-container *:after {
+  content:attr(class);
+  position: absolute;
+  top: 0;
+  left: 0;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
