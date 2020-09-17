@@ -7,48 +7,65 @@ import Assignments from './components/Assignments'
 import Schedule from './components/Schedule'
 import Grades from './components/Grades'
 import Contact from './components/Contact'
+import Login from './components/Login'
 
 
 
 
-function App() {
+class App extends React.Component {
+    state ={
+      login: false
+    }
+
+renderApp = () => {
+  if (this.state.login === false) {
+    return <Login />
+  }
+  else {
+    
+  return <div>
+          <div>
+             <NavBar/>
+            </div>
+
+            <div className="grid-container">
+              <div className="main">
+                  <Switch>
+                    <Route path="/" exact>
+                      <Home />
+                    </Route>
+
+                    <Route path="/assignments" exact>
+                      <Assignments />
+                    </Route>
+
+                    <Route path="/schedule" exact>
+                      <Schedule />
+                    </Route>
+
+                    <Route path="/grades" exact>
+                      <Grades />
+                    </Route>
+
+                    <Route path="/contact" exact>
+                      <Contact />
+                    </Route>
+
+                  </Switch>
+              </div>
+            </div>
+        </div>
+    }
+}    
+
+render() {
   return (
     
     <div className="App">
-      {/* <header>chalkboard</header> */}
-      <div>
-      <NavBar/>
-      </div>
-      <div className="grid-container">
-        <div className="main">
-            <Switch>
-              <Route path="/" exact>
-                <Home />
-              </Route>
-
-              <Route path="/assignments" exact>
-                <Assignments />
-              </Route>
-
-              <Route path="/schedule" exact>
-                <Schedule />
-              </Route>
-
-              <Route path="/grades" exact>
-                <Grades />
-              </Route>
-
-              <Route path="/contact" exact>
-                <Contact />
-              </Route>
-
-            </Switch>
-            
-
-        </div>
-      </div>
+     {this.renderApp()}
     </div>
   );
+}
 }
 
 
