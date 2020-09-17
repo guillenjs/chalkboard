@@ -42,6 +42,7 @@ body {
     border: none;
     height: 30px;
     width: 50px;
+    border-radius: 5px;
 }
 
 .list-btn:hover {
@@ -54,6 +55,7 @@ body {
     border: none;
     height: 30px;
     width: 50px;
+    border-radius: 5px;
 }
 
 .logout-btn:hover {
