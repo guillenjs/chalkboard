@@ -4,6 +4,7 @@ export class Assignments extends Component {
     render() {
         return (
             <div >
+                <button className="create-btn">Create New</button>
                 <div className="assignment-container">
                     Hello
                 </div>
