@@ -14,7 +14,7 @@ const renderNavBar = () => {
 
 const handleLogout = (e) => {
     e.preventDefault()
-    this.props.login(null);
+    props.login(null);
     // this.props.push("/login")
 }
 

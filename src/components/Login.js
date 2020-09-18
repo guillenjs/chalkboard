@@ -29,7 +29,7 @@ class Login extends React.Component {
             .then(data => {
                 localStorage.setItem('userId', data.user.id)
                 this.props.login(data.user)
-                this.props.history.push('/')
+                // this.props.history.push('/')
             })
   }
 
@@ -37,8 +37,8 @@ class Login extends React.Component {
         console.log(this.state)
     return (
         <div>
-            <div class="login-container">
-                 <div class="login">
+            <div className="login-container">
+                 <div className="login">
                      <img src="chalkboardlogo.png" className="login-logo" alt="chalkboard login logo"/>
                         <br></br>
                         login
@@ -68,7 +68,7 @@ class Login extends React.Component {
                                 <br></br>
                             <button 
                                 className ="sign-in" 
-                                onClick={this.props.login}>
+                                >
                                     Sign In
                             </button>
                      </form>

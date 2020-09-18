@@ -36,7 +36,7 @@ render() {
     <Login login = {this.toggleLogin} user={this.state.user}/>:
       <div>
           <header>
-            <div class="container">
+            <div className="container">
              <img src="chalkboard.png" alt="chalkboard logo"/>
          </div>
     </header>

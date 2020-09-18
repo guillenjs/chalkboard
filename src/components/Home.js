@@ -5,9 +5,9 @@ export class Home extends Component {
         return (
             <div>
                 
-                <div class="home-grid">
+                <div className="home-grid">
                     
-                    <div class="date">
+                    <div className="date">
                         <p>hello</p>
                         <p>hello</p>
                         <p>hello</p>
@@ -15,7 +15,7 @@ export class Home extends Component {
                         <p>hello</p>
                     </div>
 
-                    <div class="assignments">
+                    <div className="assignments">
                         <p>hello</p>
                         <p>hello</p>
                         <p>hello</p>
@@ -23,7 +23,7 @@ export class Home extends Component {
                         <p>hello</p>
                     </div>
 
-                    <div class="current">
+                    <div className="current">
                         <p>hello</p>
                         <p>hello</p>
                         <p>hello</p>
