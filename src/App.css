@@ -316,3 +316,74 @@ https://ianlunn.github.io/Hover/#effects */
     -webkit-transform: translateX(8px);
     transform: translateX(8px);
   }
+
+
+  /* schedule styling and columns */
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    text-align: left;
+  }
+  
+  .flex-item {
+    flex-grow: 1;
+    height: 100px;
+    background: #D0D9F5;
+    margin-left: 10px;
+    margin-right: 10px
+  }
+
+  .flex-item-alt {
+    flex-grow: 1;
+    height: 100px;
+    background: #F5E1DC;
+    margin-left: 10px;
+    margin-right: 10px
+  }
+
+  .flex-item-alt h3{
+    text-align: center;
+  }
+
+.flex-item h3 {
+    text-align: center;
+}
+  
+  /* .flex-item + .flex-item {
+    margin-left: 2%;
+  } */
+
+  /* Styling and grid for grades */
+
+  html, body, .grade-container { height: 100%; margin: 0; }
+
+.grade-container {
+  display: grid;
+  grid-template-columns: 0.7fr 2.5fr 4.2fr 0.8fr;
+  grid-template-rows: 1.1fr 1fr 0.9fr;
+  gap: 1px 10px;
+  grid-template-areas:
+    ". average list-grades ."
+    ". . list-grades ."
+    ". . . .";
+}
+
+.average { grid-area: average; }
+
+.average {
+    background: #ECF7FB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: 1px solid #9E9E9E;
+}
+
+.list-grades { grid-area: list-grades; }
+
+.list-grades {
+    background: #ECF7FB;
+    border: 1px solid #9E9E9E;
+    border-radius: 20px;
+}
+
+
