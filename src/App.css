@@ -127,7 +127,7 @@ html, body, .grid-container { height: 100%; margin: 0; }
 
 .main {
     background: #C6EBF6;
-    border-radius: 10px;
+    border-radius: 10px;    
 }
 
 
@@ -145,14 +145,14 @@ html, body, .grid-container { height: 100%; margin: 0; }
   } */
 
 
-/* Grid for home page */
+/* Grid and styling for home page */
   html, body, .home-grid { height: 100%; margin: 0; }
 
   .home-grid {
     display: grid;
     grid-template-columns: 0.3fr 2.5fr 2.9fr 0.3fr;
     grid-template-rows: 1.5fr 0.5fr 1fr;
-    gap: 1px 1px;
+    gap: 30px 30px;
     grid-template-areas:
       ". date current ."
       ". assignments current ."
@@ -160,24 +160,27 @@ html, body, .grid-container { height: 100%; margin: 0; }
   }
   
   .date { grid-area: date; }
+
+  .date {
+      background: #ECF7FB;
+      margin-top: 30px;
+  }
   
   .assignments { grid-area: assignments; }
-  
+
+  .assignments {
+    background: #ECF7FB;
+    margin-bottom: 30px;
+}
+
   .current { grid-area: current; }
-  
-  
-  /* For presentation only, no need to copy the code below */
-  .home-grid * {
-    border: 1px solid red;
-    position: relative;
-    }
-  
-  .home-grid *:after {
-    content:attr(class);
-    position: absolute;
-    top: 0;
-    left: 0;
-    }
+
+  .current {
+    background: #ECF7FB;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 49px;
+}
 
     /* Styling for login page */
 
@@ -232,16 +235,20 @@ html, body, .grid-container { height: 100%; margin: 0; }
     }
 
    
+/* styling for assignments  */
 
-    /* For presentation only, no need to copy the code below */
-    /* .login-container * {
-      border: 1px solid red;
-      position: relative;
-      }
-    
-    .login-container *:after {
-      content:attr(class);
-      position: absolute;
-      top: 0;
-      left: 0;
-      } */
+.assignment-container {
+    background: #B8F5E2;
+    height: 50px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 45px;
+    margin-bottom: 5px;
+}
+
+.assignment-container:hover {
+    background: chocolate;
+}

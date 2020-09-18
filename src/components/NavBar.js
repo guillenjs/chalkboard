@@ -27,7 +27,7 @@ console.log(showNav)
                     </button>
             }
 
-            <NavLink to="/login" className="logout"><button className="logout-btn">Logout</button></NavLink>
+            <NavLink to="/login" className="logout"><button className="logout-btn" onClick={props.login}>Logout</button></NavLink>
             {showNav? 
                 <div className="links">
                     <ul className="menuList">

@@ -36,7 +36,7 @@ renderApp = () => {
          </div>
     </header>
           <div>
-             <NavBar/>
+             <NavBar login = {this.toggleLogin}/>
             </div>
 
             <div className="grid-container">
