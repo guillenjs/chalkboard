@@ -179,3 +179,69 @@ html, body, .grid-container { height: 100%; margin: 0; }
     left: 0;
     }
 
+    /* Styling for login page */
+
+    html, body, .login-container { height: 100%; margin: 0; }
+
+    .login-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      grid-template-rows: 0.6fr 1.8fr 0.6fr;
+      gap: 1px 1px;
+      grid-template-areas:
+        ". . . ."
+        ". login login ."
+        ". . . .";
+    }
+    
+    .login { grid-area: login; }
+
+    .login {
+        background: #C6EBF6;
+        text-align: center;
+        border: 11px solid #D0D9F5;
+        border-radius: 29px;
+    }
+    
+    .login-logo {
+        padding: 0 6px;
+        float: left;
+        width: 90%;
+        padding-top: 5px;
+    }
+    
+    .login-pencil {
+        padding: 0 6px;
+        float: left;
+        width: 90%;
+        padding-top: 5px;
+        padding-left: 25px;
+    }
+
+    .userName {
+        margin-bottom: 10px;
+        border-radius: 20px;
+        width: 50%;
+        border: none;
+    }
+
+    .sign-in {
+        border: 1px solid #000000;
+        background: #97eed2;
+        border-radius: 23px;
+    }
+
+   
+
+    /* For presentation only, no need to copy the code below */
+    /* .login-container * {
+      border: 1px solid red;
+      position: relative;
+      }
+    
+    .login-container *:after {
+      content:attr(class);
+      position: absolute;
+      top: 0;
+      left: 0;
+      } */

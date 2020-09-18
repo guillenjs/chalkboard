@@ -14,16 +14,27 @@ import Login from './components/Login'
 
 class App extends React.Component {
     state ={
-      login: false
+      login: false,
     }
+
+  toggleLogin = () => {
+    this.setState({
+      login: !this.state.login
+    })
+  }
 
 renderApp = () => {
   if (this.state.login === false) {
-    return <Login />
+    return <Login login = {this.toggleLogin}/>
   }
   else {
     
   return <div>
+          <header>
+            <div class="container">
+             <img src="chalkboard.png" alt="chalkboard logo"/>
+         </div>
+    </header>
           <div>
              <NavBar/>
             </div>
@@ -59,10 +70,11 @@ renderApp = () => {
 }    
 
 render() {
+  console.log(this.state.login)
   return (
     
     <div className="App">
-     {this.renderApp()}
+       {this.renderApp()}
     </div>
   );
 }
