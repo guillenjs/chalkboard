@@ -1,8 +1,40 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-function Login(props) {
-  
+class Login extends React.Component {
+
+  state = {
+      username: "",
+      password: ""
+  }
+
+  handleChange = e => {
+    //   console.log([e.target.name])
+      this.setState({
+        [e.target.name]: e.target.value
+      })
+  }
+
+  handleSubmit = (e) => {
+     e.preventDefault()
+
+     fetch("http://localhost:3000/login", {
+         method: "POST",
+         headers: {
+            'content-type': 'application/json'
+         },
+         body: JSON.stringify(this.state)
+         })
+            .then(res => res.json())
+            .then(data => {
+                localStorage.setItem('userId', data.user.id)
+                this.props.login(data.user)
+                this.props.history.push('/')
+            })
+  }
+
+    render() {
+        console.log(this.state)
     return (
         <div>
             <div class="login-container">
@@ -12,16 +44,41 @@ function Login(props) {
                         login
                         <div>
 
-                     <form className = "login-form">
-                            <input type="email" placeholder="email" className = "userName"/>
+                     <form className = "login-form" onSubmit={this.handleSubmit}>
+
+                            <input 
+                                type="text" 
+                                placeholder="username" 
+                                name='username'
+                                className = "userName" 
+                                value={this.state.username}
+                                onChange = {this.handleChange}
+                            />
+
                                 <br></br>
-                            <input type="password" placeholder="password" className = "userName"/>
+                            <input 
+                                type="password" 
+                                placeholder="password" 
+                                name="password"
+                                className = "userName"
+                                value={this.state.password}
+                                onChange = {this.handleChange}
+                            />
+
                                 <br></br>
-                            <button className ="sign-in" onClick={props.login}>Sign In</button>
+                            <button 
+                                className ="sign-in" 
+                                onClick={this.props.login}>
+                                    Sign In
+                            </button>
                      </form>
                      <br></br>
 
-                     <img src="pencil_login.png" className="login-pencil" alt="graphics for login area"/>
+                     <img 
+                        src="pencil_login.png" 
+                        className="login-pencil" 
+                        alt="graphics for login area"
+                    />
                         
                         {/* this link is what will be use for to new user form */}
                         <NavLink to="/signup">sign-up</NavLink>
@@ -31,6 +88,7 @@ function Login(props) {
             </div>
         </div>
     )
+    }
 }
 
 export default Login
