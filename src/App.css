@@ -49,6 +49,12 @@ body {
     background: #E7A800;
 }
 
+
+
+
+
+
+
 .logout-btn {
     padding: 0;
     background: #F5E1AB;
@@ -131,18 +137,6 @@ html, body, .grid-container { height: 100%; margin: 0; }
 }
 
 
-/* For presentation only, no need to copy the code below */
-/* .grid-container * {
-  border: 1px solid red;
-  position: relative;
-  }
-
-.grid-container *:after {
-  content:attr(class);
-  position: absolute;
-  top: 0;
-  left: 0;
-  } */
 
 
 /* Grid and styling for home page */
@@ -235,22 +229,61 @@ html, body, .grid-container { height: 100%; margin: 0; }
     }
 
    
-/* styling for assignments  */
+/* styling and grid for assignments  */
+
+html, body, .assignments-container { height: 100%; margin: 0; }
+
+.assignments-container {
+  display: grid;
+  grid-template-columns: 0.4fr 2.3fr 3fr 0.3fr;
+  grid-template-rows: 1.4fr 0.6fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    ". assignments assignments ."
+    ". assignments assignments ."
+    ". assignments assignments .";
+}
+
+.assignments { grid-area: assignments; }
+
+.assignments {
+    text-align: center;
+    background: #C6EBF6;
+    margin-top: 20px;
+}
+
+
 
 .assignment-container {
     background: #B8F5E2;
     height: 50px;
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 45px;
     margin-bottom: 5px;
+
+/* This is css code create by Ian lunn for hover effects
+https://ianlunn.github.io/Hover/#effects */
+    /* display: inline-block;
+    vertical-align: middle; */
+    /* -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0); */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    /* -webkit-transition-property: transform;
+    transition-property: transform; */
 }
 
-.assignment-container:hover {
-    background: chocolate;
+.assignment-container:hover, .assignment-container:focus, .assignment-container:active{
+    background: #8ce0c6;
+
+    /* This is css code create by Ian lunn
+https://ianlunn.github.io/Hover/#effects */
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
 }
 
 .create-btn {
@@ -260,4 +293,26 @@ html, body, .grid-container { height: 100%; margin: 0; }
     border: none;
     font-size: 16px;
     margin: 10px;
+
+
 }
+
+.create-btn:hover  {
+    background: #f8c0b2;
+}
+
+.hvr-forward {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }

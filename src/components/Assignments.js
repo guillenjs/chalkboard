@@ -5,15 +5,26 @@ export class Assignments extends Component {
         return (
             <div >
                 <button className="create-btn">Create New</button>
-                <div className="assignment-container">
-                    Hello
+               
+                <div class="assignments-container">
+                    <div class="assignments">
+                       
+                    <div className="assignment-container">
+                        Hello
+                    </div>
+
+                    <div className="assignment-container">
+                        Hello
+                    </div>
+
+                    <div className="assignment-container">
+                        Hello
+                    </div>
+
+                    </div>
                 </div>
-                <div className="assignment-container">
-                    Hello
-                </div>
-                <div className="assignment-container">
-                    Hello
-                </div>
+
+                    
             </div>
         )
     }
