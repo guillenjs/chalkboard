@@ -8,6 +8,7 @@ import Schedule from './components/Schedule'
 import Grades from './components/Grades'
 import Contact from './components/Contact'
 import Login from './components/Login'
+import Signup from './components/Signup'
 
 
 
@@ -33,7 +34,24 @@ render() {
     <div className="App">
 
  { this.state.user == null?
-    <Login login = {this.toggleLogin} user={this.state.user}/>:
+
+    <div>
+      
+      <Switch>
+
+        <Route path="/" exact>
+           <Login login = {this.toggleLogin} user={this.state.user}/>
+        </Route>
+        ]
+        <Route path = "/signup" exact>
+          <Signup />
+        </Route>
+
+      </Switch>
+     
+     </div>:
+    
+
       <div>
           <header>
             <div className="container">
