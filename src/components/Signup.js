@@ -16,8 +16,17 @@ export class Signup extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log('submit')
-        fetch("")
+       
+        fetch("http://localhost:3000/users",{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        } 
+        )
+        .then(res => res.json())
+        .then(newUser => console.log(newUser))
     }
     
 
