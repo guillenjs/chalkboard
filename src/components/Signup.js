@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom'
 
 export class Signup extends Component {
 
     state = {
         username: "",
         password: "",
-        age: ""
+        teacher: false
     }
 
     handleChange = (e) => {
@@ -23,10 +24,10 @@ export class Signup extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state)
-        } 
+        }
         )
         .then(res => res.json())
-        .then(newUser => console.log(newUser))
+        .then(() => this.props.history.push("/"))
     }
     
 
@@ -39,7 +40,7 @@ export class Signup extends Component {
                  <div className="login">
                  <img src="chalkboardlogo.png" className="login-logo" alt="chalkboard login logo"/>
                         <br></br>
-                        Sign-up
+                      
 
                 <form onSubmit={this.handleSubmit}>
                     <label> 
@@ -65,16 +66,11 @@ export class Signup extends Component {
                     </label>
                     <br></br>
 
-                    <label>
-                        <input 
-                        type="text"
-                         name="age" 
-                         placeholder="age" 
-                         className = "userName" 
-                         value={this.state.age}
-                         onChange={this.handleChange}/>
-                    </label>
-                    <br></br>
+                    <select value={this.state.teacher} name="teacher" className = "userName" onChange={this.handleChange}>
+                        <option value={true}>Teacher</option>
+                        <option value={false}>Student</option>
+                     </select>
+                     <br></br>
 
                     <button className="sign-in">Sign-Up</button>
                 </form>
@@ -85,4 +81,4 @@ export class Signup extends Component {
     }
 }
 
-export default Signup
+export default withRouter(Signup)
