@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {withRouter} from 'react-router-dom'
+import  AssignmentButton from './AssignmentButton'
 
 
 export class Assignments extends Component {
@@ -9,7 +10,7 @@ export class Assignments extends Component {
         new: false,
         title: "",
         date: new Date(),
-
+        assignmentArr: []
     }
 
     handleClick = (e) => {
@@ -21,8 +22,7 @@ export class Assignments extends Component {
         fetch("http://localhost:3000//assignments", {
             method: "POST",
             headers: {
-                //Create authorized fetch make sure take is a vairable
-                // Authorization: `token ${token}`,
+                //Create authorized fetch with token stored in localStorage
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
                 
@@ -33,11 +33,34 @@ export class Assignments extends Component {
                 user_id: this.props.user.id
             })
         })
+        .then(res => res.json())
+        .then(newAssignment => {
+            this.props.handleCurrentAssignment(newAssignment)
+            this.props.history.push("/form")
+        })
 
         // this.setState ({
         //     new: true
         // }, () => this.props.history.push("/form"))
     }
+
+    componentDidMount() {
+        fetch("http://localhost:3000//assignments", {
+                headers:{'Authorization': `Bearer ${localStorage.getItem('token')}`,} 
+            }
+        )
+        .then(res => res.json())
+        .then(assignmentArr => {
+            this.setState({
+                assignmentArr: assignmentArr
+            })
+        })
+      }
+
+    // render each assignement through a map function
+    // when each item is clicked it should render a new page, the route for each will be determined by index or id
+
+ 
 
     handleDate = e => {
         this.setState({
@@ -74,6 +97,11 @@ export class Assignments extends Component {
               </form>
     }
 
+    renderAssignments = () => {
+        let assignments = this.state.assignmentArr.filter( assignment => assignment.user_id === this.props.user.id)
+    return assignments.map(a => <AssignmentButton assign = {a}/>)
+    }
+
 
     render() {
         console.log(this.state)
@@ -83,19 +111,7 @@ export class Assignments extends Component {
                
                 <div class="assignments-container">
                     <div class="assignments">
-                       
-                    <div className="assignment-container">
-                        Hello
-                    </div>
-
-                    <div className="assignment-container">
-                        Hello
-                    </div>
-
-                    <div className="assignment-container">
-                        Hello
-                    </div>
-
+                        {this.renderAssignments()}
                     </div>
                 </div>
                

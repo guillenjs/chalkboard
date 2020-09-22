@@ -17,12 +17,22 @@ import AssignmentsForm from './components/AssignmentsForm';
 class App extends React.Component {
     state ={
       user: null,
+      currentAssignment:[]
     }
 
   toggleLogin = (user) => {
     this.setState({
       user: user
     })
+  }
+
+  //do a fetch through a lifecycle method do get each assignment
+
+  
+
+  handleCurrentAssignment = (currentAssignment) => {
+    console.log(currentAssignment)
+    //spread current assignemnt to existing array of objects
   }
 
  
@@ -75,6 +85,7 @@ render() {
                     <Route path="/assignments" exact>
                       <Assignments 
                         user={this.state.user}
+                        handleCurrentAssignment = {this.handleCurrentAssignment}
                       />
                     </Route>
 
