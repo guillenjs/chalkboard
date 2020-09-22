@@ -6,7 +6,8 @@ export class Signup extends Component {
     state = {
         username: "",
         password: "",
-        teacher: false
+        teacher: false,
+        image: ""
     }
 
     handleChange = (e) => {
@@ -28,6 +29,7 @@ export class Signup extends Component {
         )
         .then(res => res.json())
         .then(() => this.props.history.push("/"))
+
     }
     
 
@@ -66,11 +68,17 @@ export class Signup extends Component {
                     </label>
                     <br></br>
 
-                    <select value={this.state.teacher} name="teacher" className = "userName" onChange={this.handleChange}>
-                        <option value={true}>Teacher</option>
-                        <option value={false}>Student</option>
+                    <select value={this.state.teacher} 
+                        name="teacher" 
+                        className = "userName" 
+                        onChange={this.handleChange}>
+                            <option value={true}>Teacher</option>
+                            <option value={false}>Student</option>
                      </select>
                      <br></br>
+
+                     {/* <input type="file" id="input" multiple></input> */}
+
 
                     <button className="sign-in">Sign-Up</button>
                 </form>

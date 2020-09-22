@@ -1,10 +1,32 @@
 import React, { Component } from 'react'
 
+import AssignmentsForm from './AssignmentsForm'
+
+
 export class Assignments extends Component {
+    state = {
+        new: false
+    }
+
+    handleClick = () => {
+        this.setState ({
+            new: true
+        })
+    }
+
     render() {
+        console.log(this.state)
         return (
             <div >
-                <button className="create-btn">Create New</button>
+               {this.state.new === true?
+               <div>
+                <AssignmentsForm /> 
+                </div>:
+
+                <div>
+                <button className="create-btn" onClick={this.handleClick}>
+                    Create New
+                </button>
                
                 <div class="assignments-container">
                     <div class="assignments">
@@ -23,8 +45,9 @@ export class Assignments extends Component {
 
                     </div>
                 </div>
-
-                    
+               
+                </div>
+                }
             </div>
         )
     }
