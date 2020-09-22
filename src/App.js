@@ -32,8 +32,9 @@ class App extends React.Component {
 
   handleCurrentAssignment = (currentAssignment) => {
     console.log(currentAssignment)
-    //spread current assignemnt to existing array of objects
+    
   }
+
 
  
 

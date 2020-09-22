@@ -39,9 +39,6 @@ export class Assignments extends Component {
             this.props.history.push("/form")
         })
 
-        // this.setState ({
-        //     new: true
-        // }, () => this.props.history.push("/form"))
     }
 
     componentDidMount() {
@@ -57,10 +54,7 @@ export class Assignments extends Component {
         })
       }
 
-    // render each assignement through a map function
-    // when each item is clicked it should render a new page, the route for each will be determined by index or id
 
- 
 
     handleDate = e => {
         this.setState({
@@ -99,7 +93,7 @@ export class Assignments extends Component {
 
     renderAssignments = () => {
         let assignments = this.state.assignmentArr.filter( assignment => assignment.user_id === this.props.user.id)
-    return assignments.map(a => <AssignmentButton assign = {a}/>)
+    return assignments.map(a => <AssignmentButton assign = {a} handleCurrentAssignment = {this.props.handleCurrentAssignment}/>)
     }
 
 
