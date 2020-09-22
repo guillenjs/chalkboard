@@ -9,6 +9,7 @@ import Grades from './components/Grades'
 import Contact from './components/Contact'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import AssignmentsForm from './components/AssignmentsForm';
 
 
 
@@ -83,6 +84,10 @@ render() {
 
                     <Route path="/contact" exact>
                       <Contact />
+                    </Route>
+
+                    <Route path="/form" exact>
+                      <AssignmentsForm />
                     </Route>
 
                   </Switch>
