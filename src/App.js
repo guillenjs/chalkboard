@@ -67,11 +67,15 @@ render() {
               <div className="main">
                   <Switch>
                     <Route path="/" exact>
-                      <Home />
+                      <Home 
+                        user={this.state.user}
+                      />
                     </Route>
 
                     <Route path="/assignments" exact>
-                      <Assignments />
+                      <Assignments 
+                        user={this.state.user}
+                      />
                     </Route>
 
                     <Route path="/schedule" exact>

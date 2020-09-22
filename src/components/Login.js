@@ -27,9 +27,11 @@ class Login extends React.Component {
          })
             .then(res => res.json())
             .then(data => {
-                localStorage.setItem('userId', data.user.id)
+                //this will set the users token into local storage 
+                //It can be used for fetch in other areas
+                localStorage.setItem('token', data.token)
                 this.props.login(data.user)
-                // this.props.history.push('/')
+                
             })
   }
 

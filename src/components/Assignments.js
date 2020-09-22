@@ -12,13 +12,31 @@ export class Assignments extends Component {
 
     }
 
-    handleClick = () => {
+    handleClick = (e) => {
+        e.preventDefault()
+        
         // do a fetch request here to the backend 
         //the below state we can get ride of it and instead there will just be a 
         //redirect to to assignment form route
-        this.setState ({
-            new: true
-        }, () => this.props.history.push("/form"))
+        fetch("http://localhost:3000//assignments", {
+            method: "POST",
+            headers: {
+                //Create authorized fetch make sure take is a vairable
+                // Authorization: `token ${token}`,
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+                
+            },
+            body: JSON.stringify ({
+                title: this.state.title,
+                date: this.state.date,
+                user_id: this.props.user.id
+            })
+        })
+
+        // this.setState ({
+        //     new: true
+        // }, () => this.props.history.push("/form"))
     }
 
     handleDate = e => {

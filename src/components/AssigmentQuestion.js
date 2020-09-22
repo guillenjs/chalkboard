@@ -28,7 +28,7 @@ function AssigmentQuestion() {
                         <input type='text'></input>
                     </label>
                     
-                    <button>Submit</button>
+                    <button>save</button>
 
                     
                 </form>

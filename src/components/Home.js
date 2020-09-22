@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export class Home extends Component {
     render() {
+        // console.log(this.props.user.id)
         return (
             <div>
                 
