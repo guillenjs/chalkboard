@@ -16,33 +16,73 @@ export class AssigmentQuestion extends Component {
         })
     }
 
+    handleSave = (e) => {
+        e.preventDefault()
+
+        //This array will be used for options which in the backend will be an array of strings
+        let optionsArr = [this.state.options1, this.state.options2, this.state.options3, this.state.options4]
+        console.log(optionsArr)
+       //each time a save is clicked it will post fetch on backend for each question
+       // each question needs state and also a key related to current form which can be aquired from props in APP
+    }
+
     render() {
         console.log(this.state)
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSave}>
                     <label>Question:
-                        <input type='text' name="question" value={this.state.question} onChange={this.handleChange}></input>
+                        <input 
+                            type='text' 
+                            name="question" 
+                            value={this.state.question} 
+                            onChange={this.handleChange}>
+                        </input>
                     </label>
 
                     <label>Option 1:
-                        <input type='text' name="options1" value={this.state.options1} onChange={this.handleChange}></input>
+                        <input 
+                            type='text' 
+                            name="options1" 
+                            value={this.state.options1} 
+                            onChange={this.handleChange}>
+                        </input>
                     </label>
 
                     <label>Option 2:
-                        <input type='text' name="options2" value={this.state.options2} onChange={this.handleChange}></input>
+                        <input 
+                            type='text' 
+                            name="options2" 
+                            value={this.state.options2} 
+                            onChange={this.handleChange}>
+                        </input>
                     </label>
 
                     <label>Option 3:
-                        <input type='text' name="options3" value={this.state.options3} onChange={this.handleChange}></input>
+                        <input 
+                            type='text' 
+                            name="options3" 
+                            value={this.state.options3} 
+                            onChange={this.handleChange}>
+                        </input>
                     </label>
 
                     <label>Option 4:
-                        <input type='text' name="options4" value={this.state.options4} onChange={this.handleChange}></input>
+                        <input 
+                            type='text' 
+                            name="options4"
+                             value={this.state.options4} 
+                             onChange={this.handleChange}>
+                        </input>
                     </label>
 
                     <label>Answer:
-                        <input type='text' name="answer" value={this.state.answer} onChange={this.handleChange}></input>
+                        <input 
+                            type='text' 
+                            name="answer" 
+                            value={this.state.answer} 
+                            onChange={this.handleChange}>
+                        </input>
                     </label>
                     
                     <button>save</button>       
