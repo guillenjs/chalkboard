@@ -10,6 +10,9 @@ import Contact from './components/Contact'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import AssignmentsForm from './components/AssignmentsForm';
+import AssignmentView from './components/AssignmentView'
+
+import {withRouter} from 'react-router-dom'
 
 
 
@@ -17,7 +20,7 @@ import AssignmentsForm from './components/AssignmentsForm';
 class App extends React.Component {
     state ={
       user: null,
-      currentAssignment:[]
+      currentAssignment:{}
     }
 
   toggleLogin = (user) => {
@@ -25,8 +28,6 @@ class App extends React.Component {
       user: user
     })
   }
-
-  //do a fetch through a lifecycle method do get each assignment
 
   
 
@@ -39,8 +40,7 @@ class App extends React.Component {
 
 
 render() {
-  
-console.log(this.state.currentAssignment)
+  console.log(this.state.currentAssignment)
   return (
     
     <div className="App">
@@ -106,6 +106,12 @@ console.log(this.state.currentAssignment)
                       <AssignmentsForm currentAssignment={this.state.currentAssignment}/>
                     </Route>
 
+                    <Route path="/assignmetview" exact>
+                      <AssignmentView 
+                        currentAssignment = {this.state.currentAssignment}
+                      />
+                    </Route>
+
                   </Switch>
               </div>
             </div>
@@ -114,11 +120,11 @@ console.log(this.state.currentAssignment)
 
 
 
-       {/* {this.renderApp()} */}
+       
     </div>
   );
 }
 }
 
 
-export default App;
+export default withRouter(App);

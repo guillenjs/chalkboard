@@ -99,7 +99,7 @@ export class Assignments extends Component {
 
 
     render() {
-        console.log(this.state)
+      
         return (
             <div >
                 {this.assignmentForm()}

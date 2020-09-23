@@ -40,8 +40,7 @@ export class AssigmentQuestion extends Component {
     }
 
     render() {
-        console.log(this.props.currentAssignment)
-        console.log(this.state)
+       
         return (
             <div>
                 <form onSubmit={this.handleSave}>
