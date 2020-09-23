@@ -9,8 +9,8 @@ export class AssignmentView extends Component {
     render() {
         console.log(this.props.currentAssignment.questions.map(question => question.question))
         return (
-            <div class="assignments-container">
-                <div class="assignments">
+            <div class="quiz-container">
+                <div class="quiz">
                     <h3>{this.props.currentAssignment.title}</h3>
                    {this.renderQuestions()}
                  </div>
@@ -20,3 +20,5 @@ export class AssignmentView extends Component {
 }
 
 export default AssignmentView
+
+

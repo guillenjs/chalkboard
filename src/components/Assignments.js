@@ -69,7 +69,8 @@ export class Assignments extends Component {
       }
 
     assignmentForm = () => {
-        return <form>
+        return <div className="create-container">
+                <form>
                     <input type="text" 
                         placeholder="title" 
                         name="title" 
@@ -83,12 +84,13 @@ export class Assignments extends Component {
                         value={this.state.date}
                         onChange={this.handleDate}
                     />
-                  
+               
                   
                     <button className="create-btn" onClick={this.handleClick}>
                             Create New
                     </button>
               </form>
+            </div>
     }
 
     renderAssignments = () => {

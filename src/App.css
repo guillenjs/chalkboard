@@ -263,6 +263,7 @@ html, body, .assignments-container { height: 100%; margin: 0; }
     align-items: center;
     border-radius: 45px;
     margin-bottom: 5px;
+    text-decoration: none;
 
 /* This is css code create by Ian lunn for hover effects
 https://ianlunn.github.io/Hover/#effects */
@@ -279,7 +280,7 @@ https://ianlunn.github.io/Hover/#effects */
 
 .assignment-container:hover, .assignment-container:focus, .assignment-container:active{
     background: #8ce0c6;
-
+    
     /* This is css code create by Ian lunn
 https://ianlunn.github.io/Hover/#effects */
     -webkit-transform: translateX(8px);
@@ -316,6 +317,87 @@ https://ianlunn.github.io/Hover/#effects */
     -webkit-transform: translateX(8px);
     transform: translateX(8px);
   }
+
+  .create-container {
+      background-color:rgb(220, 239, 255);
+      display: flex;
+      align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .create-container input {
+      margin-left: 15px;
+      align-self: center;
+      border-radius: 5px;
+      border: 1px ;
+      /* justify-content: ; */
+  }
+
+  .assignment-link {
+      text-decoration: none;
+      color: black
+      
+  }
+
+  /* styling for assignment/quiz view */
+
+  html, body, .quiz-container { height: 100%; margin: 0; }
+
+.quiz-container {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 1.5fr 0.5fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    ". quiz quiz ."
+    ". quiz quiz ."
+    ". quiz quiz .";
+}
+
+.quiz { grid-area: quiz; }
+
+.quiz {
+    background-color: #ECF7FB;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.quiz h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-btn {
+    border: none;
+    background-color: #ffffff;
+    /* border-radius: 15px; */
+    width: 900px;
+    height: 30px;
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.option-btn:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+/* For presentation only, no need to copy the code below */
+/* .quiz-container * {
+  border: 1px solid red;
+  position: relative;
+}
+
+.quiz-container *:after {
+  content:attr(class);
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
 
 
   /* schedule styling and columns */
@@ -385,5 +467,7 @@ https://ianlunn.github.io/Hover/#effects */
     border: 1px solid #9E9E9E;
     border-radius: 20px;
 }
+
+
 
 
