@@ -7,7 +7,9 @@ export class AssigmentQuestion extends Component {
         options2: "",
         options3: "",
         options4: "",
-        answer: ""
+        answer: "",
+        assignment_id: this.props.currentAssignment.id
+
     }
 
     handleChange = (e) => {
@@ -22,11 +24,23 @@ export class AssigmentQuestion extends Component {
         //This array will be used for options which in the backend will be an array of strings
         let optionsArr = [this.state.options1, this.state.options2, this.state.options3, this.state.options4]
         console.log(optionsArr)
+
        //each time a save is clicked it will post fetch on backend for each question
        // each question needs state and also a key related to current form which can be aquired from props in APP
+       fetch("http://localhost:3000/questions", {
+           method: "Post",
+           headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+           },
+           body: JSON.stringify (
+                  this.state
+           )
+       })
     }
 
     render() {
+        console.log(this.props.currentAssignment)
         console.log(this.state)
         return (
             <div>

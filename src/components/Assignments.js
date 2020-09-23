@@ -93,6 +93,7 @@ export class Assignments extends Component {
 
     renderAssignments = () => {
         let assignments = this.state.assignmentArr.filter( assignment => assignment.user_id === this.props.user.id)
+       
     return assignments.map(a => <AssignmentButton assign = {a} handleCurrentAssignment = {this.props.handleCurrentAssignment}/>)
     }
 

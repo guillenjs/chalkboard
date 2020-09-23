@@ -4,11 +4,11 @@ import AssigmentQuestion from './AssigmentQuestion'
 export class AssignmentsForm extends Component {
 
     state = {
-        questions: [<AssigmentQuestion />]
+        questions: [<AssigmentQuestion currentAssignment={this.props.currentAssignment}/>]
     }
 
     renderQuestion = () => {
-        let newQuestion = [...this.state.questions, <AssigmentQuestion />]
+        let newQuestion = [...this.state.questions, <AssigmentQuestion currentAssignment={this.props.currentAssignment}/>]
 
         this.setState({
             questions: newQuestion 

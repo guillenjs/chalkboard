@@ -103,7 +103,7 @@ console.log(this.state.currentAssignment)
                     </Route>
 
                     <Route path="/form" exact>
-                      <AssignmentsForm />
+                      <AssignmentsForm currentAssignment={this.state.currentAssignment}/>
                     </Route>
 
                   </Switch>
