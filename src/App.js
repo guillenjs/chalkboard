@@ -30,17 +30,17 @@ class App extends React.Component {
 
   
 
-  handleCurrentAssignment = (currentAssignment) => {
-    console.log(currentAssignment)
-    
+  handleCurrentAssignment = (current) => {
+    this.setState ({
+      currentAssignment: current
+    })
   }
 
 
- 
 
 render() {
   
-  console.log(this.state.user)
+  console.log(this.state)
   return (
     
     <div className="App">

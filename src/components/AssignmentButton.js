@@ -5,10 +5,7 @@ function AssignmentButton(props) {
     return (
         <div className="assignment-container" 
             onClick={()=>props.handleCurrentAssignment(props.assign)}>
-               <p>
-                   <b>{props.assign.title}</b> 
-                   due:{props.assign.date}
-                </p>
+               <p> <b>{props.assign.title}</b> due:{props.assign.date} </p>
         </div>
     )
 }

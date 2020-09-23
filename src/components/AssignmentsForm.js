@@ -16,7 +16,6 @@ export class AssignmentsForm extends Component {
     }
 
     
-    
     render() {
 
         return (
