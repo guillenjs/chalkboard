@@ -21,6 +21,7 @@ class App extends React.Component {
     state ={
       user: null,
       currentAssignment:{},
+      usersTeachers: []
     }
 
   toggleLogin = (user) => {
@@ -37,11 +38,18 @@ class App extends React.Component {
     })
   }
 
+  handleUsersTeachers = (user) => {
+    let updatedTeachers = [...this.state.usersTeachers, user ]
+    this.setState ({
+      usersTeachers: updatedTeachers
+    })
+  }
+
 
 
 
 render() {
-  console.log(this.state.currentAssignment)
+
   return (
     
     <div className="App">
@@ -81,6 +89,7 @@ render() {
                     <Route path="/" exact>
                       <Home 
                         user={this.state.user}
+                        handleUsersTeachers = {this.handleUsersTeachers}
                       />
                     </Route>
 

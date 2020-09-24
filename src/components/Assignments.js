@@ -69,6 +69,8 @@ export class Assignments extends Component {
       }
 
     assignmentForm = () => {
+
+        if (this.props.user.teacher === true ){
         return <div className="create-container">
                 <form>
                     <input type="text" 
@@ -91,6 +93,10 @@ export class Assignments extends Component {
                     </button>
               </form>
             </div>
+        }
+        else {
+            return <h3>Assignments</h3>
+        }
     }
 
     renderAssignments = () => {

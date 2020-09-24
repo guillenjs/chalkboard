@@ -7,6 +7,7 @@ export class Home extends Component {
     }
 
     componentDidMount() {
+
         fetch("http://localhost:3000/users",{
                 headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -20,8 +21,24 @@ export class Home extends Component {
                 this.setState({
                     teachers: teacherArr
                 })
+               
             })
+
+            fetch("http://localhost:3000/users",{
+                    headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                 }
+             )
+             .then(res => res.json())
+             .then(users => {
+                let user = users.filter(individualUser => individualUser.id === this.props.user.id)
+                user[0].friendships.map( teacher => this.props.handleUsersTeachers(teacher))
+                
+             })
     }
+
+
 
     renderTeacher= () => {
         return this.state.teachers.map(teacher => <HomeTeacher teacher ={teacher} handleTeacherAdd={this.handleTeacherAdd}/>)
