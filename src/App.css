@@ -385,19 +385,6 @@ https://ianlunn.github.io/Hover/#effects */
     background-color: rgb(240, 240, 240);
 }
 
-/* For presentation only, no need to copy the code below */
-/* .quiz-container * {
-  border: 1px solid red;
-  position: relative;
-}
-
-.quiz-container *:after {
-  content:attr(class);
-  position: absolute;
-  top: 0;
-  left: 0;
-} */
-
 
 
   /* schedule styling and columns */

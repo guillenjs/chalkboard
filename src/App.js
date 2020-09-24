@@ -20,7 +20,7 @@ import {withRouter} from 'react-router-dom'
 class App extends React.Component {
     state ={
       user: null,
-      currentAssignment:{}
+      currentAssignment:{},
     }
 
   toggleLogin = (user) => {
@@ -36,6 +36,7 @@ class App extends React.Component {
       currentAssignment: current
     })
   }
+
 
 
 

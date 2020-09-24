@@ -6,8 +6,7 @@ export class Signup extends Component {
     state = {
         username: "",
         password: "",
-        teacher: false,
-        image: ""
+        teacher: false
     }
 
     handleChange = (e) => {
@@ -18,17 +17,18 @@ export class Signup extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-       
-        fetch("http://localhost:3000/users",{
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state)
-        }
-        )
-        .then(res => res.json())
-        .then(() => this.props.history.push("/"))
+      
+            fetch("http://localhost:3000/users",{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.state)
+            }
+            )
+            .then(res => res.json())
+            .then(() => this.props.history.push("/"))
+        
 
     }
     

@@ -5,11 +5,11 @@ class Login extends React.Component {
 
   state = {
       username: "",
-      password: ""
+      password: "",
+      teacher: ""
   }
 
   handleChange = e => {
-    //   console.log([e.target.name])
       this.setState({
         [e.target.name]: e.target.value
       })
@@ -66,8 +66,9 @@ class Login extends React.Component {
                                 value={this.state.password}
                                 onChange = {this.handleChange}
                             />
-
                                 <br></br>
+
+
                             <button 
                                 className ="sign-in" 
                                 >

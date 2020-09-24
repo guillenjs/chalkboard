@@ -1,8 +1,53 @@
 import React, { Component } from 'react'
+import HomeTeacher from './HomeTeacher'
 
 export class Home extends Component {
+    state = {
+        teachers:[]
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:3000/users",{
+                headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            }
+        )
+            .then(res => res.json())
+            .then(userArr => {
+                let teacherArr = userArr.filter( user => user.teacher === true)
+                console.log(teacherArr)
+                this.setState({
+                    teachers: teacherArr
+                })
+            })
+    }
+
+    renderTeacher= () => {
+        return this.state.teachers.map(teacher => <HomeTeacher teacher ={teacher} handleTeacherAdd={this.handleTeacherAdd}/>)
+    }
+
+    handleTeacherAdd = (e) => {
+        console.log(e.target.value)
+        fetch("http://localhost:3000//friendships",{
+            method: "POST",
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_id: this.props.user.id, 
+                friend_id: e.target.value
+            })
+        }
+        )
+            .then(res => res.json())
+            .then(newFriend => console.log(newFriend))
+    }
+
+
     render() {
-        // console.log(this.props.user.id)
+        console.log(this.state)
         return (
             <div>
                 
@@ -25,11 +70,8 @@ export class Home extends Component {
                     </div>
 
                     <div className="current">
-                        <p>hello</p>
-                        <p>hello</p>
-                        <p>hello</p>
-                        <p>hello</p>
-                        <p>hello</p>
+                        {/* right now this will be used to render each teacher in order to be added */}
+                        {this.renderTeacher()}
                     </div>
 
             </div>
