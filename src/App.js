@@ -139,6 +139,7 @@ render() {
                     <Route path="/assignmetview" exact>
                       <AssignmentView 
                         currentAssignment = {this.state.currentAssignment}
+                        user = {this.state.user}
                       />
                     </Route>
 

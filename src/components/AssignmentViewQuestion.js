@@ -6,10 +6,26 @@ export class AssignmentViewQuestion extends Component {
     }
 
     handeClick = (e) => {
-        console.log(e.target.value)
+      
         this.setState ({
             answer: e.target.value
         })
+
+      
+        if (e.target.value === this.props.question.answer)
+        {
+            this.props.handleGrade()
+        }
+
+    }
+
+    handleAnswer = () => {
+        // if(this.state.answer === this.props.question.answer)
+        //     {
+        //         this.props.handleGrade("hello")
+        //     }
+
+        
     }
 
     renderButtons =()=> {
@@ -30,7 +46,8 @@ export class AssignmentViewQuestion extends Component {
 
 
     render() {
-        console.log(this.props.question)
+        console.log(this.state.answer)
+        console.log(this.props.question.answer)
         return (
             <div>
                 <div>
