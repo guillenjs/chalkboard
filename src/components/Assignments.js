@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {withRouter} from 'react-router-dom'
 import  AssignmentButton from './AssignmentButton'
+import AssignmentTeacher from './AssignmentTeacher'
 
 
 export class Assignments extends Component {
@@ -100,14 +101,29 @@ export class Assignments extends Component {
     }
 
     renderAssignments = () => {
-        let assignments = this.state.assignmentArr.filter( assignment => assignment.user_id === this.props.user.id)
-       
-    return assignments.map(a => <AssignmentButton assign = {a} handleCurrentAssignment = {this.props.handleCurrentAssignment}/>)
+        if (this.props.user.teacher === true ){
+            let assignments = this.state.assignmentArr.filter( assignment => assignment.user_id === this.props.user.id)
+                return assignments.map(a => 
+                        <AssignmentButton
+                             assign = {a} 
+                            handleCurrentAssignment = {this.props.handleCurrentAssignment}
+                        />)
+        }
+        else {
+            console.log(this.props.usersTeachers)
+           return this.props.usersTeachers.map( teacher => 
+                    <AssignmentTeacher 
+                        teacher = {teacher} 
+                        allUsers={this.props.allUsers}
+                        handleCurrentAssignment = {this.props.handleCurrentAssignment}
+                        assignmentArray = {this.state.assignmentArr}
+                    />)
+        }
     }
 
 
     render() {
-      
+
         return (
             <div >
                 {this.assignmentForm()}

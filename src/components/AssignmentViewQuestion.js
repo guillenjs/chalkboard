@@ -33,10 +33,10 @@ export class AssignmentViewQuestion extends Component {
         console.log(this.props.question)
         return (
             <div>
-                <p>
+                <div>
                      <b>{this.props.question.question}</b>
                             {this.renderButtons()}
-                </p>
+                </div>
             </div>
         )
     }

@@ -33,15 +33,20 @@ export class Home extends Component {
              .then(res => res.json())
              .then(users => {
                 let user = users.filter(individualUser => individualUser.id === this.props.user.id)
-                user[0].friendships.map( teacher => this.props.handleUsersTeachers(teacher))
-                
+                    user[0].friendships.map( teacher => this.props.handleAddTeacher(teacher))
+                this.props.handleAllUsers(users)
              })
     }
 
 
 
     renderTeacher= () => {
-        return this.state.teachers.map(teacher => <HomeTeacher teacher ={teacher} handleTeacherAdd={this.handleTeacherAdd}/>)
+        return this.state.teachers.map(teacher => 
+            <HomeTeacher 
+                teacher={teacher} 
+                handleTeacherAdd={this.handleTeacherAdd}
+                
+            />)
     }
 
     handleTeacherAdd = (e) => {
@@ -59,7 +64,9 @@ export class Home extends Component {
         }
         )
             .then(res => res.json())
-            .then(newFriend => console.log(newFriend))
+            .then(newFriend => {
+                this.props.handleAddTeacher(newFriend)
+            })
     }
 
 

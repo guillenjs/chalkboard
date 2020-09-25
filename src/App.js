@@ -21,7 +21,8 @@ class App extends React.Component {
     state ={
       user: null,
       currentAssignment:{},
-      usersTeachers: []
+      usersTeachers: [],
+      allUsers: []
     }
 
   toggleLogin = (user) => {
@@ -39,17 +40,32 @@ class App extends React.Component {
   }
 
   handleUsersTeachers = (user) => {
-    let updatedTeachers = [...this.state.usersTeachers, user ]
+
     this.setState ({
-      usersTeachers: updatedTeachers
+      usersTeachers: user
     })
+  }
+
+  handleAddTeacher = (newTeacher) => {
+    let updatedArr = [...this.state.usersTeachers, newTeacher]
+
+    this.setState ({
+      usersTeachers: updatedArr
+    })
+  }
+
+  handleAllUsers = (users) => {
+     
+      this.setState({
+        allUsers: users
+      })
   }
 
 
 
 
 render() {
-
+  
   return (
     
     <div className="App">
@@ -90,12 +106,16 @@ render() {
                       <Home 
                         user={this.state.user}
                         handleUsersTeachers = {this.handleUsersTeachers}
+                        handleAddTeacher = {this.handleAddTeacher}
+                        handleAllUsers = {this.handleAllUsers}
                       />
                     </Route>
 
                     <Route path="/assignments" exact>
                       <Assignments 
                         user={this.state.user}
+                        usersTeachers = {this.state.usersTeachers}
+                        allUsers = {this.state.allUsers}
                         handleCurrentAssignment = {this.handleCurrentAssignment}
                       />
                     </Route>
