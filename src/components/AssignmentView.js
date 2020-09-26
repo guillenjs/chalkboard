@@ -26,7 +26,24 @@ export class AssignmentView extends Component {
                     />) 
     }
 
-   
+    handleComplete = () => {
+        fetch("http://localhost:3000/assignments", {
+            method: "POST",
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: this.props.currentAssignment.title,
+                date: Date.now(),
+                user_id: this.props.user.id
+            })
+        })
+            .then( res => res.json())
+            .then( newAssignment => console.log(newAssignment))
+
+        //after first fetch do a second fetch that will post into new grade table that needs to be created in backend
+    }
 
 
 
@@ -41,7 +58,7 @@ export class AssignmentView extends Component {
 
                    {this.props.user.teacher?
                     <button>edit</button>:
-                    <button>complete</button>
+                    <button onClick={this.handleComplete}>complete</button>
                    }
                  </div>
         </div>

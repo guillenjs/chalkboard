@@ -10,7 +10,6 @@ export class AssignmentViewQuestion extends Component {
         this.setState ({
             answer: e.target.value
         })
-
       
         if (e.target.value === this.props.question.answer)
         {
@@ -19,14 +18,6 @@ export class AssignmentViewQuestion extends Component {
 
     }
 
-    handleAnswer = () => {
-        // if(this.state.answer === this.props.question.answer)
-        //     {
-        //         this.props.handleGrade("hello")
-        //     }
-
-        
-    }
 
     renderButtons =()=> {
         if (this.state.answer === ""){
