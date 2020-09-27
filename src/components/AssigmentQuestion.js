@@ -9,7 +9,6 @@ export class AssigmentQuestion extends Component {
         options4: "",
         answer: "",
         assignment_id: this.props.currentAssignment.id
-
     }
 
     handleChange = (e) => {
@@ -37,6 +36,8 @@ export class AssigmentQuestion extends Component {
                   this.state
            )
        })
+        .then(res => res.json())
+        .then(newQuestions => console.log(newQuestions))
     }
 
     render() {

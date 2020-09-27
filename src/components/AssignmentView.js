@@ -28,6 +28,21 @@ export class AssignmentView extends Component {
     }
 
     handleComplete = () => {
+
+        fetch("http://localhost:3000/grades", {
+            method: "POST",
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                grade: this.state.grade,
+                user_id: this.props.user.id, 
+                teacher_id: this.props.currentAssignment.user_id, 
+                assignment_id: this.props.currentAssignment.id
+            })
+        })
+
         fetch("http://localhost:3000/assignments", {
             method: "POST",
             headers: {
@@ -43,12 +58,9 @@ export class AssignmentView extends Component {
             .then( res => res.json())
             .then( newAssignment => {
                 this.props.updateCompleted(newAssignment)
-                // this.props.history.push("/assignments")
                 }
             )
 
-        //after first fetch do a second fetch that will post into new grade table that needs to be created in backend
-        //make sure that after fetch to redirect to assignments.
     }
 
 
