@@ -22,6 +22,7 @@ class App extends React.Component {
       user: null,
       currentAssignment:{},
       usersTeachers: [],
+      allTeachers: [],
       allUsers: [],
       assignmentArr: []
     }
@@ -34,6 +35,7 @@ class App extends React.Component {
 
 
   //NEW FETCH FOR ASSIGNMENTS
+
   componentDidMount() {
     fetch("http://localhost:3000//assignments", {
             headers:{'Authorization': `Bearer ${localStorage.getItem('token')}`,} 
@@ -45,7 +47,26 @@ class App extends React.Component {
             assignmentArr: assignmentArr
         })
     })
+
+
+    fetch("http://localhost:3000/users",{
+      headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
   }
+)
+  .then(res => res.json())
+  .then(userArr => {
+
+    let teacherArr = userArr.filter( user => user.teacher === true)
+
+      this.setState ({
+        allUsers: userArr,
+        allTeachers: teacherArr
+
+      })
+  })
+}
   
 
   handleCurrentAssignment = (current) => {
@@ -66,25 +87,34 @@ class App extends React.Component {
   }
 
   handleAddTeacher = (newTeacher) => {
-    let updatedArr = [...this.state.usersTeachers, newTeacher]
+    console.log(newTeacher)
 
-    this.setState ({
-      usersTeachers: updatedArr
-    })
-  }
+    // this.setState ({
+    //   usersTeachers: updatedArr
+    // })
 
-  handleAllUsers = (users) => {
-     
-      this.setState({
-        allUsers: users
-      })
+    this.setState((prevState) => ({
+      usersTeachers: [...prevState.usersTeachers, newTeacher]
+    }));
   }
 
 
+
+  //this will updated Assignment Array in state by removing the assignment that was just completed specifically 
+  //when on the student side but can be rused on teacher side as well, in order to delete assignment// edit assignment.
+updateCompleted = (completed) => {
+  console.log(completed)
+  const newAssignmentArr = this.state.assignmentArr.filter( assignment => assignment !== this.state.currentAssignment)
+  
+  this.setState({
+    assignmentArr: newAssignmentArr
+  })
+  this.props.history.push("/assignments")
+}
 
 
 render() {
-  
+  console.log(this.state)
   return (
     
     <div className="App">
@@ -119,11 +149,14 @@ render() {
             </div>
 
             <div className="grid-container">
+              
               <div className="main">
                   <Switch>
                     <Route path="/" exact>
                       <Home 
                         user={this.state.user}
+                        allUser = {this.state.allUsers}
+                        allTeachers = {this.state.allTeachers}
                         handleUsersTeachers = {this.handleUsersTeachers}
                         handleAddTeacher = {this.handleAddTeacher}
                         handleAllUsers = {this.handleAllUsers}
@@ -137,6 +170,8 @@ render() {
                         allUsers = {this.state.allUsers}
                         handleCurrentAssignment = {this.handleCurrentAssignment}
                         assignmentArr = {this.state.assignmentArr}
+
+                        handleAddTeacher = {this.handleAddTeacher}
                       />
                     </Route>
 
@@ -161,6 +196,7 @@ render() {
                         currentAssignment = {this.state.currentAssignment}
                         user = {this.state.user}
                         assignmentArr = {this.state.assignmentArr}
+                        updateCompleted = {this.updateCompleted}
                       />
                     </Route>
 

@@ -6,42 +6,42 @@ export class Home extends Component {
         teachers:[]
     }
 
-    componentDidMount() {
+    // componentDidMount() {
 
-        fetch("http://localhost:3000/users",{
-                headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
-            }
-        )
-            .then(res => res.json())
-            .then(userArr => {
-                let teacherArr = userArr.filter( user => user.teacher === true)
-                console.log(teacherArr)
-                this.setState({
-                    teachers: teacherArr
-                })
+    //     fetch("http://localhost:3000/users",{
+    //             headers: {
+    //             'Authorization': `Bearer ${localStorage.getItem('token')}`
+    //             }
+    //         }
+    //     )
+    //         .then(res => res.json())
+    //         .then(userArr => {
+    //             let teacherArr = userArr.filter( user => user.teacher === true)
+    //             console.log(teacherArr)
+    //             this.setState({
+    //                 teachers: teacherArr
+    //             })
                
-            })
+    //         })
 
-            fetch("http://localhost:3000/users",{
-                    headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                 }
-             )
-             .then(res => res.json())
-             .then(users => {
-                let user = users.filter(individualUser => individualUser.id === this.props.user.id)
-                    user[0].friendships.map( teacher => this.props.handleAddTeacher(teacher))
-                this.props.handleAllUsers(users)
-             })
-    }
+    //         fetch("http://localhost:3000/users",{
+    //                 headers: {
+    //                 'Authorization': `Bearer ${localStorage.getItem('token')}`
+    //                 }
+    //              }
+    //          )
+    //          .then(res => res.json())
+    //          .then(users => {
+    //             let user = users.filter(individualUser => individualUser.id === this.props.user.id)
+    //                 user[0].friendships.map( teacher => this.props.handleAddTeacher(teacher))
+    //       
+    //          })
+    // }
 
 
 
     renderTeacher= () => {
-        return this.state.teachers.map(teacher => 
+        return this.props.allTeachers.map(teacher => 
             <HomeTeacher 
                 teacher={teacher} 
                 handleTeacherAdd={this.handleTeacherAdd}

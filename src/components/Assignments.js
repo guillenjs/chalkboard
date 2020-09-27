@@ -11,7 +11,17 @@ export class Assignments extends Component {
         new: false,
         title: "",
         date: new Date(),
-        // assignmentArr: []
+        allTeachers: [],
+        assignmentArr: this.props.assignmentArr
+    }
+
+    componentDidMount() {
+        let user = this.props.allUsers.filter(individualUser => individualUser.id === this.props.user.id)
+         let teachers = user[0].friendships.map( teacher => teacher)
+        
+         this.setState({
+             allTeachers: teachers
+         })
     }
 
     handleClick = (e) => {
@@ -44,6 +54,9 @@ export class Assignments extends Component {
 
 
     
+
+
+    
     // componentDidMount() {
     //     fetch("http://localhost:3000//assignments", {
     //             headers:{'Authorization': `Bearer ${localStorage.getItem('token')}`,} 
@@ -72,6 +85,8 @@ export class Assignments extends Component {
       }
 
     assignmentForm = () => {
+
+     
 
         if (this.props.user.teacher === true ){
         return <div className="create-container">
@@ -103,6 +118,8 @@ export class Assignments extends Component {
     }
 
     renderAssignments = () => {
+      
+
         if (this.props.user.teacher === true ){
             let assignments = this.props.assignmentArr.filter( assignment => assignment.user_id === this.props.user.id)
                 return assignments.map(a => 
@@ -112,10 +129,11 @@ export class Assignments extends Component {
                         />)
         }
         else {
-            console.log(this.props.usersTeachers)
-           return this.props.usersTeachers.map( teacher => 
+            console.log(this.state.allTeachers)
+           return this.state.allTeachers.map( teacher => 
                     <AssignmentTeacher 
                         teacher = {teacher} 
+                        user = {this.props.user}
                         allUsers={this.props.allUsers}
                         handleCurrentAssignment = {this.props.handleCurrentAssignment}
                         assignmentArray = {this.props.assignmentArr}

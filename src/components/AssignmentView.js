@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AssignmentViewQuestion from './AssignmentViewQuestion'
+import {withRouter} from 'react-router-dom'
 
 export class AssignmentView extends Component {
 
@@ -40,7 +41,11 @@ export class AssignmentView extends Component {
             })
         })
             .then( res => res.json())
-            .then( newAssignment => console.log(newAssignment))
+            .then( newAssignment => {
+                this.props.updateCompleted(newAssignment)
+                // this.props.history.push("/assignments")
+                }
+            )
 
         //after first fetch do a second fetch that will post into new grade table that needs to be created in backend
         //make sure that after fetch to redirect to assignments.
@@ -67,6 +72,6 @@ export class AssignmentView extends Component {
     }
 }
 
-export default AssignmentView
+export default withRouter(AssignmentView)
 
 
