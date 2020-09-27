@@ -35,7 +35,7 @@ export class AssignmentView extends Component {
             },
             body: JSON.stringify({
                 title: this.props.currentAssignment.title,
-                date: Date.now(),
+                date: new Date().toUTCString(),
                 user_id: this.props.user.id
             })
         })
@@ -43,6 +43,7 @@ export class AssignmentView extends Component {
             .then( newAssignment => console.log(newAssignment))
 
         //after first fetch do a second fetch that will post into new grade table that needs to be created in backend
+        //make sure that after fetch to redirect to assignments.
     }
 
 

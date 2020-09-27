@@ -11,7 +11,7 @@ export class Assignments extends Component {
         new: false,
         title: "",
         date: new Date(),
-        assignmentArr: []
+        // assignmentArr: []
     }
 
     handleClick = (e) => {
@@ -42,18 +42,20 @@ export class Assignments extends Component {
 
     }
 
-    componentDidMount() {
-        fetch("http://localhost:3000//assignments", {
-                headers:{'Authorization': `Bearer ${localStorage.getItem('token')}`,} 
-            }
-        )
-        .then(res => res.json())
-        .then(assignmentArr => {
-            this.setState({
-                assignmentArr: assignmentArr
-            })
-        })
-      }
+
+    
+    // componentDidMount() {
+    //     fetch("http://localhost:3000//assignments", {
+    //             headers:{'Authorization': `Bearer ${localStorage.getItem('token')}`,} 
+    //         }
+    //     )
+    //     .then(res => res.json())
+    //     .then(assignmentArr => {
+    //         this.setState({
+    //             assignmentArr: assignmentArr
+    //         })
+    //     })
+    //   }
 
 
 
@@ -102,7 +104,7 @@ export class Assignments extends Component {
 
     renderAssignments = () => {
         if (this.props.user.teacher === true ){
-            let assignments = this.state.assignmentArr.filter( assignment => assignment.user_id === this.props.user.id)
+            let assignments = this.props.assignmentArr.filter( assignment => assignment.user_id === this.props.user.id)
                 return assignments.map(a => 
                         <AssignmentButton
                              assign = {a} 
@@ -116,7 +118,7 @@ export class Assignments extends Component {
                         teacher = {teacher} 
                         allUsers={this.props.allUsers}
                         handleCurrentAssignment = {this.props.handleCurrentAssignment}
-                        assignmentArray = {this.state.assignmentArr}
+                        assignmentArray = {this.props.assignmentArr}
                     />)
         }
     }

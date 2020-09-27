@@ -22,7 +22,8 @@ class App extends React.Component {
       user: null,
       currentAssignment:{},
       usersTeachers: [],
-      allUsers: []
+      allUsers: [],
+      assignmentArr: []
     }
 
   toggleLogin = (user) => {
@@ -31,12 +32,30 @@ class App extends React.Component {
     })
   }
 
+
+  //NEW FETCH FOR ASSIGNMENTS
+  componentDidMount() {
+    fetch("http://localhost:3000//assignments", {
+            headers:{'Authorization': `Bearer ${localStorage.getItem('token')}`,} 
+        }
+    )
+    .then(res => res.json())
+    .then(assignmentArr => {
+        this.setState({
+            assignmentArr: assignmentArr
+        })
+    })
+  }
   
 
   handleCurrentAssignment = (current) => {
+    const newArr = [...this.state.assignmentArr, current]
+
     this.setState ({
-      currentAssignment: current
+      currentAssignment: current,
+      assignmentArr: newArr
     })
+   
   }
 
   handleUsersTeachers = (user) => {
@@ -117,6 +136,7 @@ render() {
                         usersTeachers = {this.state.usersTeachers}
                         allUsers = {this.state.allUsers}
                         handleCurrentAssignment = {this.handleCurrentAssignment}
+                        assignmentArr = {this.state.assignmentArr}
                       />
                     </Route>
 
@@ -140,6 +160,7 @@ render() {
                       <AssignmentView 
                         currentAssignment = {this.state.currentAssignment}
                         user = {this.state.user}
+                        assignmentArr = {this.state.assignmentArr}
                       />
                     </Route>
 
