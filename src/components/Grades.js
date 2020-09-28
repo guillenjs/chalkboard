@@ -17,12 +17,20 @@ export class Grades extends Component {
         )
         .then(res => res.json())
         .then(gradesArr => {
-            let currentGrades = gradesArr.filter( grade => grade.user.id === this.props.user.id)
-            console.log(currentGrades)
+            if(this.props.user.teacher === false){
+                let currentGrades = gradesArr.filter( grade => grade.user.id === this.props.user.id)
+                console.log(currentGrades)
 
-            this.setState({
-                grades: currentGrades
-            })
+                this.setState({
+                    grades: currentGrades
+                })
+             }
+             else {
+                 let currentGrades = gradesArr.filter( grade => grade.teacher_id  === this.props.user.id)
+                 this.setState({
+                     grades: currentGrades
+                 })
+             }
            
         })
     }
@@ -39,7 +47,9 @@ export class Grades extends Component {
     }
 
     renderAssignmentGrades = () => {
-       return this.state.grades.map( eachGrade => <GradeAssignment  key={eachGrade.id} grade ={eachGrade} assignmentArr = {this.props.assignmentArr}/> )
+      
+       return this.state.grades.map( eachGrade => <GradeAssignment  key={eachGrade.id} grade ={eachGrade} user={this.props.user} assignmentArr = {this.props.assignmentArr}/> )
+      
     }
 
     render() {
@@ -53,7 +63,10 @@ export class Grades extends Component {
                      
                      <div i>
                      <table id="average-table"> 
+                     {this.props.user.teacher?
+                        <th>Class Average</th>:
                         <th>Average</th>
+                    }
                      <tr>{this.renderGrades()} </tr>
                      </table>
                      </div>
@@ -70,12 +83,18 @@ export class Grades extends Component {
                     </div>
                     <div className="list-grades">
                         <table id="customers">
+                            {this.props.user.teacher? 
+                            <tr>
+                                <th>Assigment</th>
+                                <th>Student</th>
+                                <th>Grade</th>
+                            </tr>:
                             <tr>
                                 <th>Assigment</th>
                                 <th>Grade</th>
                             
                             </tr>
-                      
+                            }
                                 {/* <td>Alfreds Futterkiste</td>
                                 <td>98</td> */}
                                 {this.renderAssignmentGrades()}

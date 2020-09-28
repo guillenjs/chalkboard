@@ -9,10 +9,19 @@ export class GradeAssignment extends Component {
         const title = assignment[0].title
 
         return (
+                <>
+                {this.props.user.teacher? 
                  <tr>
                     <td>{title}</td>
+                    <td>{this.props.grade.user.username}</td>
                     <td>{grade.toFixed(2)}</td>
-                </tr>
+                </tr>:
+                 <tr>
+                 <td>{title}</td>
+                 <td>{grade.toFixed(2)}</td>
+             </tr>
+                }
+                </>
         )
     }
 }
