@@ -39,7 +39,7 @@ console.log(showNav)
             {showNav? 
                 <div className="links">
                     <ul className="menuList">
-                    <li><NavLink className="menu-link" to="/" onClick={renderNavBar}>Home</NavLink><i class="fas fa-chalkboard"></i></li>
+                    <li><NavLink className="menu-link" to="/" onClick={renderNavBar}>Home</NavLink><i className="fas fa-chalkboard"></i></li>
                         <li><NavLink className="menu-link" to="/assignments" onClick={renderNavBar}>Assignments</NavLink></li>
                         <li><NavLink className="menu-link" to="/schedule" onClick={renderNavBar}>Schedule</NavLink></li>
                         <li><NavLink className="menu-link" to="/grades" onClick={renderNavBar}>Student/Grades</NavLink></li>

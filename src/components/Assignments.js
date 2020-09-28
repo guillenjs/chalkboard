@@ -124,6 +124,7 @@ export class Assignments extends Component {
             let assignments = this.props.assignmentArr.filter( assignment => assignment.user_id === this.props.user.id)
                 return assignments.map(a => 
                         <AssignmentButton
+                            key = {a.id}
                              assign = {a} 
                             handleCurrentAssignment = {this.props.handleCurrentAssignment}
                         />)
@@ -132,6 +133,7 @@ export class Assignments extends Component {
             console.log(this.state.allTeachers)
            return this.state.allTeachers.map( teacher => 
                     <AssignmentTeacher 
+                        key = {teacher.id}
                         teacher = {teacher} 
                         user = {this.props.user}
                         allUsers={this.props.allUsers}

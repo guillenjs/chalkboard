@@ -39,7 +39,7 @@ export class AssignmentView extends Component {
                 grade: this.state.grade,
                 user_id: this.props.user.id, 
                 teacher_id: this.props.currentAssignment.user_id, 
-                assignment_id: this.props.currentAssignment.id
+                assignment_id: this.props.currentAssignment.id,
             })
         })
 

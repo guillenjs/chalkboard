@@ -180,7 +180,10 @@ render() {
                     </Route>
 
                     <Route path="/grades" exact>
-                      <Grades />
+                      <Grades 
+                        user = {this.state.user}
+                        assignmentArr = {this.state.assignmentArr}
+                      />
                     </Route>
 
                     <Route path="/contact" exact>

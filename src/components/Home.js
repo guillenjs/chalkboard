@@ -43,6 +43,7 @@ export class Home extends Component {
     renderTeacher= () => {
         return this.props.allTeachers.map(teacher => 
             <HomeTeacher 
+                key = {teacher.id}
                 teacher={teacher} 
                 handleTeacherAdd={this.handleTeacherAdd}
                 
