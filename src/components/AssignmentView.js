@@ -69,8 +69,8 @@ export class AssignmentView extends Component {
         console.log(this.state.counter)
         console.log(this.state.grade)
         return (
-            <div class="quiz-container">
-                <div class="quiz">
+            <div className="quiz-container">
+                <div className="quiz">
                     <h3>{this.props.currentAssignment.title}</h3>
                    {this.renderQuestions()}
 
