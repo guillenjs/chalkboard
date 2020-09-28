@@ -6,13 +6,13 @@ export class AssignmentView extends Component {
 
   state= {
       counter: 0,
-      grade: 0 
+    //   grade: 0 
   }
 
   handleGrade = () => {
         this.setState((prevState) => ({
             counter: prevState.counter + 1,
-            grade: ((prevState.counter + 1)/(this.props.currentAssignment.questions.length))
+            // grade: ((prevState.counter + 1)/(this.props.currentAssignment.questions.length))
           }));
     }
     // when rendering question from teacher side we can directly map through the assignment 
@@ -28,6 +28,9 @@ export class AssignmentView extends Component {
     }
 
     handleComplete = () => {
+        const grade = (this.state.counter) / (this.props.currentAssignment.questions.length)
+        // console.log(grade)
+
 
         fetch("http://localhost:3000/grades", {
             method: "POST",
@@ -36,12 +39,14 @@ export class AssignmentView extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                grade: this.state.grade,
+                grade: grade,
                 user_id: this.props.user.id, 
                 teacher_id: this.props.currentAssignment.user_id, 
                 assignment_id: this.props.currentAssignment.id,
             })
         })
+            .then(res => res.json())
+            .then(newGrade => console.log(newGrade))
 
         fetch("http://localhost:3000/assignments", {
             method: "POST",
@@ -66,8 +71,10 @@ export class AssignmentView extends Component {
 
 
     render() {
+        const grade = (this.state.counter) / (this.props.currentAssignment.questions.length)
         console.log(this.state.counter)
         console.log(this.state.grade)
+        console.log(grade)
         return (
             <div className="quiz-container">
                 <div className="quiz">

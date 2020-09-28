@@ -35,11 +35,11 @@ export class Grades extends Component {
         }, 0)
         
         const average = (sum / this.state.grades.length) * 100
-             return <div><h1>{average}</h1>  </div>
+             return <div><h1>{average.toFixed(2)}</h1>  </div>
     }
 
     renderAssignmentGrades = () => {
-       return this.state.grades.map( eachGrade => <GradeAssignment  key={eachGrade.id} grade ={eachGrade} /> )
+       return this.state.grades.map( eachGrade => <GradeAssignment  key={eachGrade.id} grade ={eachGrade} assignmentArr = {this.props.assignmentArr}/> )
     }
 
     render() {
@@ -50,10 +50,38 @@ export class Grades extends Component {
 
                 <div className="grade-container">
                     <div className="average">
-                      {this.renderGrades()}
+                     
+                     <div i>
+                     <table id="average-table"> 
+                        <th>Average</th>
+                     <tr>{this.renderGrades()} </tr>
+                     </table>
+                     </div>
+                      <br></br>
+                    <div className = 'grade-key'>
+                      A = 92 - 100
+                       B = 86 - 92
+                       C = 70 - 86
+                       D = 66 - 70
+                       F = 0 - 65
+                       
+                    </div>    
+
                     </div>
                     <div className="list-grades">
-                        {this.renderAssignmentGrades()}
+                        <table id="customers">
+                            <tr>
+                                <th>Assigment</th>
+                                <th>Grade</th>
+                            
+                            </tr>
+                      
+                                {/* <td>Alfreds Futterkiste</td>
+                                <td>98</td> */}
+                                {this.renderAssignmentGrades()}
+                         
+
+                            </table>
                     </div>
                 </div>
 
