@@ -392,7 +392,7 @@ https://ianlunn.github.io/Hover/#effects */
     display: flex;
     align-items: center;
     justify-items: center;
-    text-align: left;
+   
   }
   
   .flex-item {
@@ -513,6 +513,28 @@ https://ianlunn.github.io/Hover/#effects */
   }
 
   
+/* calender */
 
+.fc {
+    width: 1000px;
+    background: rgb(255, 252, 238);
+    margin-left: 150px;
+    margin-bottom: 150px;
+    /* margin: 50px 50px; */
+    padding: 50px 50px;
+    display: flex;
+    border-radius: 20px;
+}
 
+.fc-daygrid-day-frame {
+ background: rgb(76, 5, 131);
+}
 
+.fc-scrollgrid-sync-inner {
+    background: rgb(255, 255, 255);
+}
+
+.fc .fc-col-header-cell-cushion {
+    background: rgb(217, 248, 186);
+    width: 130px;
+}
