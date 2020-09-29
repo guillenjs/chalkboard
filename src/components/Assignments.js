@@ -152,7 +152,12 @@ export class Assignments extends Component {
                
                 <div class="assignments-container">
                     <div class="assignments">
+                        {this.props.user.teacher? 
+                        <div>{this.renderAssignments()}</div>:
+                        <div className = "teacher-assignments">
                         {this.renderAssignments()}
+                        </div>
+                           }
                     </div>
                 </div>
                

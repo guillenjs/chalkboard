@@ -149,8 +149,8 @@ html, body, .grid-container { height: 100%; margin: 0; }
     gap: 30px 30px;
     grid-template-areas:
       ". date current ."
-      ". assignments current ."
-      ". assignments current .";
+      ". assignmentshome current ."
+      ". assignmentshome current .";
   }
   
   .date { grid-area: date; }
@@ -158,13 +158,15 @@ html, body, .grid-container { height: 100%; margin: 0; }
   .date {
       background: #ECF7FB;
       margin-top: 30px;
+      border-radius: 10px;
   }
   
-  .assignments { grid-area: assignments; }
+  .assignmentshome { grid-area: assignmentshome; }
 
-  .assignments {
+  .assignmentshome {
     background: #ECF7FB;
     margin-bottom: 30px;
+    border-radius: 10px;
 }
 
   .current { grid-area: current; }
@@ -173,7 +175,7 @@ html, body, .grid-container { height: 100%; margin: 0; }
     background: #ECF7FB;
     margin-top: 30px;
     margin-bottom: 30px;
-    border-radius: 49px;
+    border-radius: 10px;
 }
 
     /* Styling for login page */
@@ -537,4 +539,39 @@ https://ianlunn.github.io/Hover/#effects */
 .fc .fc-col-header-cell-cushion {
     background: rgb(217, 248, 186);
     width: 130px;
+}
+
+
+/* styling for teacher buttons */
+.teacher-assignments {
+    display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: row;
+  justify-content: start; */
+  /* align-items: auto;
+  align-content: start; */
+}
+
+.teacher-assignments:after {
+    display: block;
+  content: " placeholder ";
+  margin: 5px;
+  flex: 999 999 auto;
+} 
+
+.teacher-assignments h4 {
+    background: rgb(255, 255, 255);
+    height: 30px;
+}
+.teacher-assignments .teacher-btn {
+    background: rgb(252, 252, 252);
+    width: 400px;
+}
+
+.teacher-item  {
+    flex: 0 0 auto;
+  margin: 20px;
+  padding: 50px;
+ background-color: rgb(255, 255, 255);
+ border-radius: 10px;
 }

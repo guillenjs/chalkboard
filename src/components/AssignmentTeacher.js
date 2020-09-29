@@ -9,7 +9,7 @@ export class AssignmentTeacher extends Component {
       
 
         return <div>
-                    {teacher[0].username}
+                   <h3> {teacher[0].username} </h3>
                 </div>
 
     }
@@ -42,10 +42,12 @@ export class AssignmentTeacher extends Component {
     render() {
         console.log(this.props.teacher.friend_id)
         return (
-            <div>
-                {this.renderTeacher()}
-                {this.renderButtons()}
-            </div>
+      
+                <div className= "teacher-item">
+                <h4>{this.renderTeacher()}</h4>
+               <div className = "teacher-btn"> {this.renderButtons()}</div>
+               </div>
+           
         )
     }
 }

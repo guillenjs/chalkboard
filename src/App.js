@@ -176,7 +176,7 @@ render() {
                     </Route>
 
                     <Route path="/schedule" exact>
-                      <Schedule />
+                      <Schedule user ={this.state.user} allTeachers = {this.state.allTeachers} assignments = {this.state.assignmentArr} />
                     </Route>
 
                     <Route path="/grades" exact>

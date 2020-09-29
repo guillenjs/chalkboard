@@ -29,15 +29,15 @@ export class TeacherAssignmentButton extends Component {
 
         if (this.state.existing.includes(this.props.assignment.title))
             {
-                return  <button >
+                return  <div  className="assignment-container"  >
                              Done
-                         </button> 
+                         </div> 
             }
         else {
                 return <NavLink to='/assignmetview'>
-                            <button onClick={()=>this.props.handleCurrentAssignment(assignment[0])} >
+                            <div onClick={()=>this.props.handleCurrentAssignment(assignment[0])}  className="assignment-container" >
                                 {this.props.assignment.title}
-                            </button>   
+                            </div>   
                         </NavLink>
         }
     }
