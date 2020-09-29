@@ -746,3 +746,29 @@ https://ianlunn.github.io/Hover/#effects */
     margin-top: 20px;
 }
 
+
+.add-classroom {
+    border-radius: 20px;
+    background: rgb(255, 209, 209);
+}
+
+.classroom-input {
+    background: #e3eff323;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    border-radius: 10px;
+    margin: 10px 10px;
+}
+
+.classroom-input input {
+    border-radius: 100px;
+    height: 100px;
+    width: 100px;
+    font-size: 50px;
+    text-align: center;
+    border: double;
+}

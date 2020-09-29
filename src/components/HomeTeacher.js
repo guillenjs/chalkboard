@@ -11,7 +11,7 @@ function HomeTeacher(props) {
     
     return (
       
-        <div>
+        <div className="classroom-input">
             <h1>Add Classroom</h1>
             <input placeholder="Class Number" onChange={handleClassroom}></input>
             <button onClick={()=>props.handleTeacherAdd(classroom)}>add</button>
