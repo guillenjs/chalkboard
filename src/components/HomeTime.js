@@ -19,7 +19,7 @@ function HomeTime() {
     return (
         <div>
             <p>Current time:</p>
-           <p> <Clock value={value} /> </p>
+          <Clock value={value} /> 
         </div>
     )
 }

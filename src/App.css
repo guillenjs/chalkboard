@@ -230,6 +230,62 @@ html, body, .grid-container { height: 100%; margin: 0; }
         border-radius: 23px;
     }
 
+    .sign-in:hover {
+        background:  #33e6ad;
+    }
+
+    .sign-in:focus {
+        background:  #01dd4a;
+        color: white;
+    }
+
+
+/* Grid for adding teacher area */
+    html, body, .current-container { height: 100%; margin: 0; }
+
+.current-container {
+  display: grid;
+  grid-template-columns: 0.4fr 1.7fr 1.8fr 0.3fr;
+  grid-template-rows: 1.5fr 0.4fr 1.1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    ". add-classroom add-classroom ."
+    ". current-teachers current-teachers ."
+    ". current-teachers current-teachers .";
+}
+
+.add-classroom { grid-area: add-classroom; }
+.add-classroom {
+    background: white;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(233, 233, 233);
+}
+
+.current-teachers { grid-area: current-teachers; }
+.current-teachers {
+    background: white;
+    margin-bottom: 40px;
+    border-radius: 10px; 
+    border: 1px solid rgb(233, 233, 233);
+}
+
+
+/* For presentation only, no need to copy the code below */
+/* .current-container * {
+  border: 1px solid red;
+  position: relative;
+}
+
+.current-container *:after {
+  content:attr(class);
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+
    
 /* styling and grid for assignments  */
 
@@ -672,5 +728,21 @@ https://ianlunn.github.io/Hover/#effects */
 }
 .save-btn:focus {
     background: rgb(252, 148, 148);
+}
+
+.current-teachers {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.users-teachers {
+    display: flex;
+    border: 1px solid rgb(179, 177, 177);
+    width: 50%;
+    height: 40px;
+    margin-top: 20px;
 }
 

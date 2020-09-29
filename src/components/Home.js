@@ -1,25 +1,31 @@
 import React, { Component } from 'react'
 import HomeTeacher from './HomeTeacher'
 import HomeTime from './HomeTime'
+import HomeUsersTeachers from './HomeUsersTeachers'
 
 
 export class Home extends Component {
     state = {
-        teachers:[]
+        teachers:[],
+        currentUser: this.props.allUser.filter(user => user.id === this.props.user.id)
+
     }
 
     renderTeacher= () => {
-        return this.props.allTeachers.map(teacher => 
-            <HomeTeacher 
-                key = {teacher.id}
-                teacher={teacher} 
+        return <HomeTeacher 
                 handleTeacherAdd={this.handleTeacherAdd}
-                
-            />)
+            />
     }
 
-    handleTeacherAdd = (e) => {
-        console.log(e.target.value)
+    renderUsersTeachers = () => {
+        console.log(this.state.currentUser[0].friendships)
+        return this.state.currentUser[0].friendships.map( friendship => <HomeUsersTeachers friendship = {friendship} teachers ={this.props.allTeachers}/>)
+
+    }
+
+
+    handleTeacherAdd = (classroom) => {
+        console.log(classroom)
         fetch("http://localhost:3000//friendships",{
             method: "POST",
             headers: {
@@ -28,7 +34,7 @@ export class Home extends Component {
             },
             body: JSON.stringify({
                 user_id: this.props.user.id, 
-                friend_id: e.target.value
+                friend_id: classroom
             })
         }
         )
@@ -38,11 +44,11 @@ export class Home extends Component {
             })
     }
 
-    
+
 
 
     render() {
-        console.log(this.state)
+       
         return (
             <div>
 
@@ -68,7 +74,16 @@ export class Home extends Component {
 
                     <div className="current">
                         {/* right now this will be used to render each teacher in order to be added */}
-                        {this.renderTeacher()}
+                        <div className="current-container">
+                            <div className="add-classroom"> 
+                                {this.renderTeacher()}
+                            </div>
+                            <div className="current-teachers">
+                                {this.renderUsersTeachers()}
+                            </div>
+                        </div>
+                       
+
                     </div>
 
             </div>
