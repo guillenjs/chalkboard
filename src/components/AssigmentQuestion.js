@@ -43,65 +43,67 @@ export class AssigmentQuestion extends Component {
     render() {
        
         return (
-            <div>
+          
+                <div className="quiz-item">
                 <form onSubmit={this.handleSave}>
-                    <label>Question:
+            
                         <input 
+                            className="new-question"
                             type='text' 
-                            name="question" 
+                            name="question"
+                            placeholder="Question" 
                             value={this.state.question} 
                             onChange={this.handleChange}>
+                            
                         </input>
-                    </label>
-
-                    <label>Option 1:
+                  
                         <input 
+                            className="new-option"
                             type='text' 
                             name="options1" 
+                            placeholder="1st Anwser" 
                             value={this.state.options1} 
                             onChange={this.handleChange}>
                         </input>
-                    </label>
-
-                    <label>Option 2:
+              
                         <input 
+                            className="new-option"
                             type='text' 
                             name="options2" 
+                            placeholder="2nd Anwser" 
                             value={this.state.options2} 
                             onChange={this.handleChange}>
                         </input>
-                    </label>
-
-                    <label>Option 3:
+                
                         <input 
+                            className="new-option"
                             type='text' 
                             name="options3" 
+                            placeholder="3rd Anwser" 
                             value={this.state.options3} 
                             onChange={this.handleChange}>
                         </input>
-                    </label>
-
-                    <label>Option 4:
+             
                         <input 
+                            className="new-option"
                             type='text' 
                             name="options4"
+                            placeholder="4th Anwser" 
                              value={this.state.options4} 
                              onChange={this.handleChange}>
                         </input>
-                    </label>
-
-                    <label>Answer:
+              
                         <input 
+                            className="new-answer"
                             type='text' 
                             name="answer" 
                             value={this.state.answer} 
                             onChange={this.handleChange}>
                         </input>
-                    </label>
                     
-                    <button>save</button>       
+                    <button className="save-btn">save</button>       
                 </form>
-            </div>
+                </div>
         )
     }
 }

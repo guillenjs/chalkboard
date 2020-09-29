@@ -9,7 +9,7 @@ export class AssignmentTeacher extends Component {
       
 
         return <div>
-                   <h3> {teacher[0].username} </h3>
+                   <h3> {teacher[0].username} 📝 </h3>
                 </div>
 
     }

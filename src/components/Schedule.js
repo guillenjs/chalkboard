@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import ScheduleEvent from './ScheduleEvent'
+
 
 export class Schedule extends Component {
 

@@ -52,26 +52,6 @@ export class Assignments extends Component {
 
     }
 
-
-    
-
-
-    
-    // componentDidMount() {
-    //     fetch("http://localhost:3000//assignments", {
-    //             headers:{'Authorization': `Bearer ${localStorage.getItem('token')}`,} 
-    //         }
-    //     )
-    //     .then(res => res.json())
-    //     .then(assignmentArr => {
-    //         this.setState({
-    //             assignmentArr: assignmentArr
-    //         })
-    //     })
-    //   }
-
-
-
     handleDate = e => {
         this.setState({
           date: e
@@ -152,11 +132,13 @@ export class Assignments extends Component {
                
                 <div class="assignments-container">
                     <div class="assignments">
+
                         {this.props.user.teacher? 
-                        <div>{this.renderAssignments()}</div>:
-                        <div className = "teacher-assignments">
-                        {this.renderAssignments()}
-                        </div>
+                            <div>{this.renderAssignments()}</div>:
+
+                            <div className = "teacher-assignments">
+                                {this.renderAssignments()}
+                            </div>
                            }
                     </div>
                 </div>

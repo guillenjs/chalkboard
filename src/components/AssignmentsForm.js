@@ -20,7 +20,7 @@ export class AssignmentsForm extends Component {
 
         return (
             
-            <div>
+            <div className="quiz-question">
                 {this.state.questions}
                 <button onClick={this.renderQuestion}>Add question</button>
             </div>
