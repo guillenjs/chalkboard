@@ -3,57 +3,62 @@ import GradeAssignment from './GradeAssignment'
 
 export class Grades extends Component {
 
-    state = {
-        grades: [],
-        // averageGrade: 0
-    }
+    // state = {
+    //     grades: []
+    // }
 
-    componentDidMount() {
-        fetch("http://localhost:3000/grades",{
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        )
-        .then(res => res.json())
-        .then(gradesArr => {
-            if(this.props.user.teacher === false){
-                let currentGrades = gradesArr.filter( grade => grade.user.id === this.props.user.id)
-                console.log(currentGrades)
+    // componentDidMount() {
+    //     fetch("http://localhost:3000/grades",{
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     }
+    //     )
+    //     .then(res => res.json())
+    //     .then(gradesArr => {
+    //         if(this.props.user.teacher === false){
+    //             let currentGrades = gradesArr.filter( grade => grade.user.id === this.props.user.id)
+    //             console.log(currentGrades)
 
-                this.setState({
-                    grades: currentGrades
-                })
-             }
-             else {
-                 let currentGrades = gradesArr.filter( grade => grade.teacher_id  === this.props.user.id)
-                 this.setState({
-                     grades: currentGrades
-                 })
-             }
+    //             this.setState({
+    //                 grades: currentGrades
+    //             })
+    //          }
+    //          else {
+    //              let currentGrades = gradesArr.filter( grade => grade.teacher_id  === this.props.user.id)
+    //              this.setState({
+    //                  grades: currentGrades
+    //              })
+    //          }
            
-        })
-    }
+    //     })
+    // }
 
     renderGrades = () => {
-        const grades = this.state.grades.map( grade => grade.grade)
-        
+        const grades = this.props.grades.map( grade => parseInt(grade.grade))
+        console.log(grades)
+
         const sum = grades.reduce((accumulator, currenValue ) => {
             return accumulator + currenValue;
         }, 0)
+        console.log(sum)
         
-        const average = (sum / this.state.grades.length) * 100
-             return <div><h1>{average.toFixed(2)}</h1>  </div>
+        const average = (sum / this.props.grades.length) * 100
+  
+     
+                return <div><h1>{average.toFixed(2)}</h1>  </div>
+            
+             
     }
 
     renderAssignmentGrades = () => {
       
-       return this.state.grades.map( eachGrade => <GradeAssignment  key={eachGrade.id} grade ={eachGrade} user={this.props.user} assignmentArr = {this.props.assignmentArr}/> )
+       return this.props.grades.map( eachGrade => <GradeAssignment  key={eachGrade.id} grade ={eachGrade} user={this.props.user} assignmentArr = {this.props.assignmentArr}/> )
       
     }
 
     render() {
-       console.log(this.state.grades)
+       console.log(this.props.grades)
         return (
             <div>
                 <h1>Grades</h1>

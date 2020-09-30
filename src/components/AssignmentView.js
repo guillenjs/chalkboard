@@ -46,7 +46,7 @@ export class AssignmentView extends Component {
             })
         })
             .then(res => res.json())
-            .then(newGrade => console.log(newGrade))
+            .then(newGrade => {this.props.updateGrades(newGrade)})
 
         fetch("http://localhost:3000/assignments", {
             method: "POST",
@@ -62,7 +62,9 @@ export class AssignmentView extends Component {
         })
             .then( res => res.json())
             .then( newAssignment => {
-                this.props.updateCompleted(newAssignment)
+                // this.props.updateCompleted(newAssignment)
+                console.log(newAssignment)
+                this.props.history.push("/assignments")
                 }
             )
 
@@ -73,7 +75,7 @@ export class AssignmentView extends Component {
     render() {
         const grade = (this.state.counter) / (this.props.currentAssignment.questions.length)
         console.log(this.state.counter)
-        console.log(this.state.grade)
+
         console.log(grade)
         return (
             <div className="quiz-container">

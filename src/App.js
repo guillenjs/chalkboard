@@ -24,7 +24,8 @@ class App extends React.Component {
       usersTeachers: [],
       allTeachers: [],
       allUsers: [],
-      assignmentArr: []
+      assignmentArr: [],
+      grades: []
     }
 
   toggleLogin = (user) => {
@@ -65,6 +66,17 @@ class App extends React.Component {
         allTeachers: teacherArr
       })
   })
+
+
+  fetch("http://localhost:3000/grades",{
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
+)
+.then(res => res.json())
+.then(gradesArr => {this.setState({ grades: gradesArr})
+})
 }
   
 
@@ -112,9 +124,17 @@ updateCompleted = (completed) => {
   this.props.history.push("/assignments")
 }
 
+updateGrades = (grade) => {
+  console.log(grade)
+  const updateArr = [...this.state.grades, grade]
+  console.log(updateArr)
+  this.setState({grades: updateArr})
+}
+
 
 render() {
-  console.log(this.state.usersTeachers)
+  console.log(this.state.assignmentArr) 
+  console.log(this.state.currentAssignment)
   return (
     
     <div className="App">
@@ -184,6 +204,7 @@ render() {
                       <Grades 
                         user = {this.state.user}
                         assignmentArr = {this.state.assignmentArr}
+                        grades = {this.state.grades}
                       />
                     </Route>
 
@@ -201,6 +222,7 @@ render() {
                         user = {this.state.user}
                         assignmentArr = {this.state.assignmentArr}
                         updateCompleted = {this.updateCompleted}
+                        updateGrades = {this.updateGrades}
                       />
                     </Route>
 

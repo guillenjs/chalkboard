@@ -34,7 +34,6 @@ export class Home extends Component {
 
          this.state.currentUser[0].friendships.map( friendship => {
              const teacher = userArr.filter( t => t.id === friendship.friend_id)
-            console.log(teacher)
             this.props.handleAddTeacher(teacher[0])
          })
     
@@ -82,9 +81,6 @@ export class Home extends Component {
                 this.props.handleAddTeacher(friendship[0])
             })
     }
-
-
-
 
     render() {
        
