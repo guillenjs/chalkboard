@@ -4,6 +4,8 @@ import HomeTime from './HomeTime'
 import HomeUsersTeachers from './HomeUsersTeachers'
 
 
+//fix the rendering of teacher after classroom is added
+
 export class Home extends Component {
     state = {
         teachers:[],
@@ -19,7 +21,13 @@ export class Home extends Component {
 
     renderUsersTeachers = () => {
         console.log(this.state.currentUser[0].friendships)
-        return this.state.currentUser[0].friendships.map( friendship => <HomeUsersTeachers friendship = {friendship} teachers ={this.props.allTeachers}/>)
+        return this.state.currentUser[0].friendships.map( friendship => 
+            <HomeUsersTeachers 
+                friendship = {friendship} 
+                teachers ={this.props.allTeachers}
+                usersTeachers = {this.props.allTeachers}
+                handleAddTeacher = {this.props.handleAddTeacher}
+            />)
 
     }
 

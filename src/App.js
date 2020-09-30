@@ -88,14 +88,14 @@ class App extends React.Component {
 
   handleAddTeacher = (newTeacher) => {
     console.log(newTeacher)
-
+    const updateArr = [...this.state.usersTeachers, newTeacher]
     // this.setState ({
     //   usersTeachers: updatedArr
     // })
 
-    this.setState((prevState) => ({
-      usersTeachers: [...prevState.usersTeachers, newTeacher]
-    }));
+    this.setState({
+      usersTeachers: updateArr
+    });
   }
 
 
@@ -114,7 +114,7 @@ updateCompleted = (completed) => {
 
 
 render() {
-  console.log(this.state)
+  console.log(this.state.usersTeachers)
   return (
     
     <div className="App">
@@ -155,6 +155,7 @@ render() {
                     <Route path="/" exact>
                       <Home 
                         user={this.state.user}
+                        usersTeachers = {this.state.usersTeachers}
                         allUser = {this.state.allUsers}
                         allTeachers = {this.state.allTeachers}
                         handleUsersTeachers = {this.handleUsersTeachers}
