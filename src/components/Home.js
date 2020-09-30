@@ -19,16 +19,46 @@ export class Home extends Component {
             />
     }
 
+
+ componentDidMount() {
+
+
+    fetch("http://localhost:3000/users",{
+      headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+  }
+)
+  .then(res => res.json())
+  .then(userArr => {
+
+         this.state.currentUser[0].friendships.map( friendship => {
+             const teacher = userArr.filter( t => t.id === friendship.friend_id)
+            console.log(teacher)
+            this.props.handleAddTeacher(teacher[0])
+         })
+    
+   })
+
+  
+
+ }   
+
+
     renderUsersTeachers = () => {
         console.log(this.state.currentUser[0].friendships)
-        return this.state.currentUser[0].friendships.map( friendship => 
+        // teacher = props.teachers.filter( t => t.id === props.friendship.friend_id)
+
+        // this.props.allTeachers.filter( t => t.id)
+
+
+      return this.props.usersTeachers.map( friendship => 
             <HomeUsersTeachers 
                 friendship = {friendship} 
                 teachers ={this.props.allTeachers}
-                usersTeachers = {this.props.allTeachers}
-                handleAddTeacher = {this.props.handleAddTeacher}
-            />)
-
+                usersTeachers = {this.props.usersTeachers}
+        />)
+     
     }
 
 
@@ -48,7 +78,8 @@ export class Home extends Component {
         )
             .then(res => res.json())
             .then(newFriend => {
-                this.props.handleAddTeacher(newFriend)
+                const friendship = this.props.allUser.filter( user => user.id === newFriend.friend_id)
+                this.props.handleAddTeacher(friendship[0])
             })
     }
 

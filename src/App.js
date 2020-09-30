@@ -63,7 +63,6 @@ class App extends React.Component {
       this.setState ({
         allUsers: userArr,
         allTeachers: teacherArr
-
       })
   })
 }
@@ -88,14 +87,15 @@ class App extends React.Component {
 
   handleAddTeacher = (newTeacher) => {
     console.log(newTeacher)
-    const updateArr = [...this.state.usersTeachers, newTeacher]
-    // this.setState ({
-    //   usersTeachers: updatedArr
-    // })
 
-    this.setState({
-      usersTeachers: updateArr
-    });
+    const updateArr = [...this.state.usersTeachers, newTeacher]
+    this.setState ({
+      usersTeachers:updateArr
+    })
+
+    // this.setState({
+    //   usersTeachers: updateArr
+    // });
   }
 
 
