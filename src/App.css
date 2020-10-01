@@ -619,12 +619,12 @@ https://ianlunn.github.io/Hover/#effects */
   align-content: start; */
 }
 
-.teacher-assignments:after {
+/* .teacher-assignments:after {
     display: block;
   content: " placeholder ";
   margin: 5px;
   flex: 999 999 auto;
-} 
+}  */
 
 .teacher-assignments h4 {
     background: rgb(255, 255, 255);
@@ -900,15 +900,37 @@ https://ianlunn.github.io/Hover/#effects */
 
  .home-field-trip h4 {
      margin-bottom: 30px;
-     margin-left: 20px;
+     margin-left: 30px;
      padding-right: 20px;
-     background: chocolate;
-     border: dotted;
+     padding-left: 20px;
+     padding-top: 40px;
+     background: rgb(255, 255, 255);
+    border-radius: 10px;
      width: 130%;
+     text-align: left;
+     color: rgb(99, 98, 98);
  }
 
  .home-field-trip img:hover {
     opacity: 1;
+   
+ }
+
+ .home-field-trip img{
+     border: double 10px rgb(136, 116, 0);
+ }
+
+ .explore-btn {
+     border: none;
+     border-radius: 5px;
+     height: 20px;
+     width: 80px;
+     background: rgb(180, 218, 104);
+ }
+
+ .explore-btn:hover {
+    background: rgb(148, 202, 38);
+    color: white;
  }
 
  /* .home-field-trip img.disabled {

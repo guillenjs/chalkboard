@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export class HomeFieldTrip extends Component {
 
@@ -17,8 +18,26 @@ export class HomeFieldTrip extends Component {
         return (
             <div className = "home-field-trip">
                         
-            <h4>F I E L D - T R I P</h4>
-              <div><img className="field-trip" src="https://images.metmuseum.org/CRDImages/as/original/38_103.JPG" /></div>
+            <h4>F I E L D - T R I P
+            <br></br>
+            <br></br>
+                    Title: Figure
+                    <br></br>
+                    Medium: "Glazed pottery (Sawankhalok ware)"
+                    <br></br>
+                     Age: ca. 15th century
+                     <br></br>
+                     Origin: Thailand
+                     <br></br>
+                     <br></br>
+                     <br></br>
+                     <a href="https://www.metmuseum.org/art/collection/search/38312" ><button className="explore-btn">Explore</button></a>
+            </h4>
+               
+
+        
+                    {this.getImage()}
+              <div><img className="field-trip" src="https://images.metmuseum.org/CRDImages/as/original/264786_1984.491.5.jpg" /></div>
              
             </div>
         )
