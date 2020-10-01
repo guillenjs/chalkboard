@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import Clock from 'react-clock';
+import React, { Component } from 'react'
+import FullCalendar, { formatDate } from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
 
-function HomeTime() {
 
-    const [value, setValue] = useState(new Date());
 
-  useEffect(() => {
-    const interval = setInterval(
-      () => setValue(new Date()),
-      1000
-    );
+export class HomeTime extends Component {
 
-    return () => {
-      clearInterval(interval);
-    }
-  }, []);
+
+  
+  render() {
+  
 
     return (
-        <div>
-            <p>Current time:</p>
-          <Clock value={value} /> 
-        </div>
+      <div className="home-cal">
+        <FullCalendar
+            
+                            plugins={[ dayGridPlugin ]}
+                            initialView="dayGridWeek"
+                        events={this.props.assignments}
+                    />
+      </div>
     )
+  }
 }
 
 export default HomeTime

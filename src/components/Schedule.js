@@ -13,8 +13,8 @@ export class Schedule extends Component {
                 <h1>Schedule</h1>
                 <div className="flex-container">
                      <FullCalendar
-                        plugins={[ dayGridPlugin ]}
-                        initialView="dayGridMonth"
+                            plugins={[ dayGridPlugin ]}
+                            initialView="dayGridMonth"
                         events={this.props.assignments}
                     />
                 </div>

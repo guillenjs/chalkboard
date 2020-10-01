@@ -4,6 +4,7 @@ import HomeTime from './HomeTime'
 import HomeUsersTeachers from './HomeUsersTeachers'
 
 
+
 //fix the rendering of teacher after classroom is added
 
 export class Home extends Component {
@@ -90,21 +91,11 @@ export class Home extends Component {
                 <div className="home-grid">
                     
                     <div className="date">
-                        <HomeTime />
-                        <p>hello</p>
-                        <p>hello</p>
-                        <p>hello</p>
-                        <p>hello</p>
-                        <p>hello</p>
-                        
+                         
                     </div>
 
                     <div className="assignmentshome">
-                        <p>hello</p>
-                        <p>hello</p>
-                        <p>hello</p>
-                        <p>hello</p>
-                        <p>hello</p>
+                        <HomeTime assignments = {this.props.assignments} />  
                     </div>
 
                     <div className="current">

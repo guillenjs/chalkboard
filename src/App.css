@@ -159,6 +159,9 @@ html, body, .grid-container { height: 100%; margin: 0; }
       background: #ECF7FB;
       margin-top: 30px;
       border-radius: 10px;
+      /* display: flex;
+      align-items: center;
+      justify-content: center; */
   }
   
   .assignmentshome { grid-area: assignmentshome; }
@@ -771,4 +774,41 @@ https://ianlunn.github.io/Hover/#effects */
     font-size: 50px;
     text-align: center;
     border: double;
+}
+
+.class-add-btn {
+    margin-top: 40px;
+    height: 30px;
+    width: 120px;
+    background: #91CEE8;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.class-add-btn:hover {
+    background-color: #73c2e4;
+    color: white;
+}
+
+.home-cal {
+    display: flex; 
+     align-items: center;
+    justify-content: center;
+}
+
+.home-cal .fc {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    display:flex
+}
+
+.home-cal .fc-media-screen {
+    border: double;
+ 
 }

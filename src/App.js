@@ -181,6 +181,7 @@ render() {
                         handleUsersTeachers = {this.handleUsersTeachers}
                         handleAddTeacher = {this.handleAddTeacher}
                         handleAllUsers = {this.handleAllUsers}
+                        assignments = {this.state.assignmentArr}
                       />
                     </Route>
 
