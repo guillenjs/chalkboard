@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import HomeTeacher from './HomeTeacher'
 import HomeTime from './HomeTime'
 import HomeUsersTeachers from './HomeUsersTeachers'
-
+import HomeFieldTrip from './HomeFieldTrip'
 
 
 //fix the rendering of teacher after classroom is added
@@ -91,7 +91,7 @@ export class Home extends Component {
                 <div className="home-grid">
                     
                     <div className="date">
-                         
+                         <HomeFieldTrip />
                     </div>
 
                     <div className="assignmentshome">
