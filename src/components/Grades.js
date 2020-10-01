@@ -46,7 +46,7 @@ export class Grades extends Component {
         const average = (sum / this.props.grades.length) * 100
   
      
-                return <div><h1>{average.toFixed(2)}</h1>  </div>
+                return <div><h2>{average.toFixed(2)}%</h2>  </div>
             
              
     }

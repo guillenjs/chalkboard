@@ -18,7 +18,7 @@ export class GradeAssignment extends Component {
                  <tr>
                     <td>{title}</td>
                     <td>{this.props.grade.user.username}</td>
-                    <td>{grade.toFixed(2)}</td>
+                    <td>{grade.toFixed(2)}%</td>
                 </tr>:
                  <tr>
                  <td>{title}</td>

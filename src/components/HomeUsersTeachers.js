@@ -12,10 +12,15 @@ function HomeUsersTeachers(props) {
 console.log(props.actualTeacher)
 
     return (
-        <div className="users-teachers">
-            {/* {addTeacher}  */}
-            {props.friendship.username}
-        </div>
+        // <div className="users-teachers">
+        //     {/* {addTeacher}  */}
+        //     {props.friendship.username}
+        // </div>
+
+        <tr>
+            <td>{props.friendship.username}</td>
+            <td><button>remove</button></td>
+        </tr>
     )
 }
 

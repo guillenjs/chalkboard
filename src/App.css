@@ -136,6 +136,10 @@ html, body, .grid-container { height: 100%; margin: 0; }
     border-radius: 10px;    
 }
 
+.main h1 {
+    margin-left: 45%;
+}
+
 
 
 
@@ -167,7 +171,7 @@ html, body, .grid-container { height: 100%; margin: 0; }
   .assignmentshome { grid-area: assignmentshome; }
 
   .assignmentshome {
-    background: #ECF7FB;
+    background: #ecf7fb00;
     margin-bottom: 30px;
     border-radius: 10px;
 }
@@ -546,10 +550,12 @@ https://ianlunn.github.io/Hover/#effects */
   }
 
   .grade-key {
-     width: 92px;
+     width:170px;
      margin-left: 40px;
      margin-bottom: 20px;
-     background-color: cornsilk;
+     /* background-color: cornsilk; */
+     font-size: 30px;
+     color: rgb(143, 142, 142);
   }
 
   #average-table{
@@ -564,13 +570,14 @@ https://ianlunn.github.io/Hover/#effects */
     padding-top: 12px;
     padding-bottom: 12px;
     padding-right: 12px;
-    width: 200px;
-    background: coral;
     
+    background: rgba(241, 157, 126, 0.432);
+    border: solid 1px rgb(146, 143, 143);
   }
 
   #average-table tr {
-      background: cornflowerblue;
+      background: rgba(145, 179, 241, 0.5);
+      border: solid 1px rgb(146, 143, 143);
   }
 
   
@@ -753,6 +760,7 @@ https://ianlunn.github.io/Hover/#effects */
 .add-classroom {
     border-radius: 20px;
     background: rgb(255, 209, 209);
+    border: solid cornsilk;
 }
 
 .classroom-input {
@@ -762,9 +770,11 @@ https://ianlunn.github.io/Hover/#effects */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
+    color: rgba(0, 0, 0, 0.411);
     border-radius: 10px;
     margin: 10px 10px;
+    padding-top: 10%;
+    font-size: 50px;
 }
 
 .classroom-input input {
@@ -773,7 +783,8 @@ https://ianlunn.github.io/Hover/#effects */
     width: 100px;
     font-size: 50px;
     text-align: center;
-    border: double;
+    border: double rgb(243, 212, 88);
+    margin-top: 20px;
 }
 
 .class-add-btn {
@@ -809,6 +820,65 @@ https://ianlunn.github.io/Hover/#effects */
 }
 
 .home-cal .fc-media-screen {
-    border: double;
+    border: double rgba(255, 127, 80, 0.404);
  
 }
+
+
+#teacher-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+    border-collapse: collapse;
+    width: 100%;
+    /* margin-top: -190px; */
+    height: 100%;
+    
+}
+
+#teacher-table th:nth-child(even) {
+    border-top-right-radius: 10px;
+}
+
+
+#teacher-table th:nth-child(odd) {
+    border-top-left-radius: 10px;
+}
+
+  
+  #teacher-table td, #teacher-table th {
+    border: 2px solid #ddd;
+    padding: 8px;
+  }
+
+  #teacher-table td {
+    text-align: center;
+  }
+  
+  #teacher-table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #teacher-table tr:hover {background-color: #ddd;}
+  
+  #teacher-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 12px;
+    text-align: center;
+    background-color: #91CEE8;
+    color: white;
+   
+  }
+
+  #teacher-table button {
+    background: rgb(255, 209, 209);
+    border: none;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  #teacher-table button:hover {
+    background: rgb(255, 110, 110);
+    color: white;
+  }
+
+  

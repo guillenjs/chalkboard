@@ -105,7 +105,14 @@ export class Home extends Component {
                                 {this.renderTeacher()}
                             </div>
                             <div className="current-teachers">
-                                {this.renderUsersTeachers()}
+                                <table id="teacher-table">
+                                    <tr>
+                                        <th>Teachers</th>
+                                        <th>remove</th>
+                                    </tr>
+                                    {this.renderUsersTeachers()}
+                                </table>
+                                
                             </div>
                         </div>
                        
