@@ -3,7 +3,7 @@ import HomeTeacher from './HomeTeacher'
 import HomeTime from './HomeTime'
 import HomeUsersTeachers from './HomeUsersTeachers'
 import HomeFieldTrip from './HomeFieldTrip'
-
+import HomeTeacherRoster from './HomeTeacherRoster'
 
 //fix the rendering of teacher after classroom is added
 
@@ -32,7 +32,6 @@ export class Home extends Component {
 )
   .then(res => res.json())
   .then(userArr => {
-
          this.state.currentUser[0].friendships.map( friendship => {
              const teacher = userArr.filter( t => t.id === friendship.friend_id)
             this.props.handleAddTeacher(teacher[0])
@@ -47,11 +46,7 @@ export class Home extends Component {
 
     renderUsersTeachers = () => {
         console.log(this.state.currentUser[0].friendships)
-        // teacher = props.teachers.filter( t => t.id === props.friendship.friend_id)
-
-        // this.props.allTeachers.filter( t => t.id)
-
-
+     
       return this.props.usersTeachers.map( friendship => 
             <HomeUsersTeachers 
                 friendship = {friendship} 
@@ -83,6 +78,12 @@ export class Home extends Component {
             })
     }
 
+    renderTeachersStudetns = () => {
+        const students = this.props.allUser.filter( user => user.teacher !== true )
+       
+        return students.map( student => <HomeTeacherRoster student ={student}/> ) 
+    }
+
     render() {
        
         return (
@@ -99,8 +100,22 @@ export class Home extends Component {
                     </div>
 
                     <div className="current">
-                        {/* right now this will be used to render each teacher in order to be added */}
+                        {this.props.user.teacher?
+
+                        <div>
+                            <table id="student-roster">
+                                <tr>
+                                    <th>Student Roster</th>
+                                    <th>ID</th>
+                                </tr>
+                                {this.renderTeachersStudetns()}
+                            </table>
+                            
+                        </div>:
+
                         <div className="current-container">
+                      
+
                             <div className="add-classroom"> 
                                 {this.renderTeacher()}
                             </div>
@@ -112,10 +127,9 @@ export class Home extends Component {
                                     </tr>
                                     {this.renderUsersTeachers()}
                                 </table>
-                                
                             </div>
                         </div>
-                       
+                    }
 
                     </div>
 
