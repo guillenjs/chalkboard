@@ -43,6 +43,7 @@ body {
     height: 30px;
     width: 50px;
     border-radius: 5px;
+ 
 }
 
 .list-btn:hover {
@@ -83,7 +84,9 @@ body {
 
 .menuList {
     padding: 0;
-    margin: 0;
+    margin-top: 0;
+  
+    
     width: 20vw;
     height: 50vh;
     /* box-shadow: #555; */
@@ -91,6 +94,9 @@ body {
     background:#F5E1AB;
     font-size: 20px;
     padding-top: 60px;
+
+       z-index: 1000;
+    position: absolute;
 }
 
 .menuList li {
@@ -627,7 +633,7 @@ https://ianlunn.github.io/Hover/#effects */
 }  */
 
 .teacher-assignments h4 {
-    background: rgb(255, 255, 255);
+    
     height: 30px;
 }
 .teacher-assignments .teacher-btn {

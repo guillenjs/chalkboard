@@ -53,6 +53,7 @@ export class Assignments extends Component {
     }
 
     handleDate = e => {
+        console.log(e)
         this.setState({
           date: e
         });
@@ -93,7 +94,7 @@ export class Assignments extends Component {
             </div>
         }
         else {
-            return <h3>Assignments</h3>
+            return <h1>Assignments</h1>
         }
     }
 

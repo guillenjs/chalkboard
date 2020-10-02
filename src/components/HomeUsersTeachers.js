@@ -9,7 +9,7 @@ function HomeUsersTeachers(props) {
     // }
 
 
-console.log(props.actualTeacher)
+console.log(props.friendship)
 
     return (
         // <div className="users-teachers">

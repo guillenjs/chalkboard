@@ -134,7 +134,7 @@ updateGrades = (grade) => {
 
 render() {
   console.log(this.state.assignmentArr) 
-  console.log(this.state.currentAssignment)
+  console.log(this.state.grades)
   return (
     
     <div className="App">

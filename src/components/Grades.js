@@ -35,15 +35,16 @@ export class Grades extends Component {
     // }
 
     renderGrades = () => {
-        const grades = this.props.grades.map( grade => parseInt(grade.grade))
+        const grades = this.props.grades.map( single => single.grade * 100)
         console.log(grades)
 
         const sum = grades.reduce((accumulator, currenValue ) => {
             return accumulator + currenValue;
         }, 0)
+        
         console.log(sum)
         
-        const average = (sum / this.props.grades.length) * 100
+        const average = (sum / this.props.grades.length) 
   
      
                 return <div><h2>{average.toFixed(2)}%</h2>  </div>
