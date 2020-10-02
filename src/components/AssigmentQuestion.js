@@ -97,6 +97,7 @@ export class AssigmentQuestion extends Component {
                             className="new-answer"
                             type='text' 
                             name="answer" 
+                            placeholder="Correct" 
                             value={this.state.answer} 
                             onChange={this.handleChange}>
                         </input>
