@@ -131,10 +131,12 @@ updateGrades = (grade) => {
   this.setState({grades: updateArr})
 }
 
+    
+
 
 render() {
-  console.log(this.state.assignmentArr) 
-  console.log(this.state.grades)
+ 
+  
   return (
     
     <div className="App">
@@ -182,6 +184,8 @@ render() {
                         handleAddTeacher = {this.handleAddTeacher}
                         handleAllUsers = {this.handleAllUsers}
                         assignments = {this.state.assignmentArr}
+
+                       
                       />
                     </Route>
 
@@ -189,6 +193,7 @@ render() {
                       <Assignments 
                         user={this.state.user}
                         usersTeachers = {this.state.usersTeachers}
+                        usersTeachersTwo = {this.usersTeachers}
                         allUsers = {this.state.allUsers}
                         handleCurrentAssignment = {this.handleCurrentAssignment}
                         assignmentArr = {this.state.assignmentArr}

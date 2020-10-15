@@ -126,7 +126,7 @@ export class Assignments extends Component {
 
 
     render() {
-
+        console.log(this.props.usersTeachersTwo)
         return (
             <div >
                 {this.assignmentForm()}
