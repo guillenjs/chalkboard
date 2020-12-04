@@ -4,8 +4,15 @@
 Chalkboard is an application for educators to create assignments and be able to assign students a code in order for them to have access to the classroom. The application keeps track of completed assignments and grades both for teachers and students.
 
 Examples:
-![Image Home Page](public/chalkboard_home.png)
+
+Teacher Home page
+![Teacher View](public/chalkboard_home.png)
+
+Student Home page
+![Student View](public/chalkboard_student_home.png)
 ![Image Home Page](public/chalkboard_assignment.png)
+![Image Home Page](public/chalkboard_assignment_view.png)
+![Image Home Page](public/chalkboard_grades.png)
 ![Image Home Page](public/chalkboard_calender.png)
 
 
